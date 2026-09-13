@@ -43,23 +43,26 @@
       overflow-x: hidden;
     }
     
-    /* Interactive Mouse Glowing Spotlight Follower - Highly Visible */
+    /* Interactive Mouse Glowing Spotlight Follower */
     .mouse-glow {
       position: fixed;
-      width: 540px;
-      height: 540px;
+      width: 460px;
+      height: 460px;
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
-      z-index: 25; /* Elevated above background & cards for clear illumination */
-      /* Light Mode: Radiant, fresh, vivid light-green glow */
-      background: radial-gradient(circle, rgba(34, 197, 94, 0.48) 0%, rgba(74, 222, 128, 0.28) 25%, rgba(134, 239, 172, 0.12) 52%, transparent 75%);
-      filter: blur(48px);
+      z-index: 10;
+      /* Light Mode: Gentle, dim soft light-green glow (ager moto) */
+      background: radial-gradient(circle, rgba(74, 222, 128, 0.22) 0%, rgba(34, 197, 94, 0.09) 32%, rgba(134, 239, 172, 0.02) 58%, transparent 75%);
+      filter: blur(42px);
       transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
       will-change: left, top;
     }
     .dark .mouse-glow {
-      /* Dark Mode: Radiant, crisp, luminous white spotlight */
+      /* Dark Mode: Vibrant, crisp, luminous white spotlight (tik ase) */
+      width: 530px;
+      height: 530px;
+      z-index: 25;
       background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.22) 25%, rgba(255, 255, 255, 0.08) 52%, transparent 75%);
       filter: blur(52px);
       mix-blend-mode: screen;
@@ -978,6 +981,9 @@
         </button>
       </div>
 
+      <!-- Live Nature Media Preview Box -->
+      <div id="previewMediaBox" class="w-full max-h-72 rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center my-3 border border-slate-200/50 dark:border-slate-800 shadow-lg"></div>
+
       <div class="p-4 rounded-2xl liquid-card space-y-2 text-xs">
         <div class="flex justify-between"><span class="text-slate-400">Size:</span><span id="previewFileSize" class="font-bold text-slate-800 dark:text-slate-100">0 KB</span></div>
         <div class="flex justify-between"><span class="text-slate-400">Storage Account:</span><span id="previewFileTarget" class="font-mono text-blue-600 dark:text-cyan-400">Google Drive #1</span></div>
@@ -1001,7 +1007,7 @@
   <!-- ==================== APPLICATION SCRIPT ==================== -->
   <script>
     // State management persisted in LocalStorage
-    const STORAGE_KEY_FILES = '9in1_cloud_files_v3';
+    const STORAGE_KEY_FILES = '9in1_cloud_files_v5';
     const STORAGE_KEY_ACCOUNTS = '9in1_cloud_accounts_v3';
     const STORAGE_KEY_THEME = '9in1_cloud_theme';
 
@@ -1013,13 +1019,152 @@
     ];
 
     const defaultFiles = [
-      { id: '1', name: 'materai.jpeg', date: 'Jun 4, 2026, 6:11 PM', size: '36.00 KB', bytes: 36864, type: 'image', color: '#facc15', starred: false, folder: 'documents' },
-      { id: '2', name: 'Otakudesu_BlkClover-138_480p.mp4', date: 'Jun 4, 2026, 5:53 PM', size: '58.82 MB', bytes: 61678551, type: 'video', color: '#f97316', starred: true, folder: 'videos' },
-      { id: '3', name: '[MV] 가호 - Running [스타트업 OST Part.5 (START-UP OST Part.5)].mp3', date: 'Jun 4, 2026, 5:03 PM', size: '3.14 MB', bytes: 3292528, type: 'audio', color: '#84cc16', starred: false, folder: 'memories' },
-      { id: '4', name: '2 hour stopwatch digital workout clock.mp4', date: 'Jun 4, 2026, 4:31 PM', size: '129.23 MB', bytes: 135510650, type: 'video', color: '#f97316', starred: false, folder: 'videos' },
-      { id: '5', name: '14-Jurnal-J-TOS_Vol.-1-No.-2-Desember-2018_Irfan-&-Deny.pdf', date: 'Jun 4, 2026, 4:28 PM', size: '2.67 MB', bytes: 2800000, type: 'doc', color: '#22d3ee', starred: false, folder: 'work' },
-      { id: '6', name: '2.png', date: 'Jun 4, 2026, 4:13 PM', size: '92.05 KB', bytes: 94259, type: 'image', color: '#facc15', starred: true, folder: 'memories' },
-      { id: '7', name: '1_A7753140002167_20220328182324989_base.jpg', date: 'Jun 4, 2026, 4:12 PM', size: '248.66 KB', bytes: 254627, type: 'image', color: '#facc15', starred: false, folder: 'memories' }
+      {
+        id: '1',
+        name: 'Alpine_Emerald_Lake_Yosemite_4K.jpg',
+        date: 'Jun 4, 2026, 6:11 PM',
+        size: '4.85 MB',
+        bytes: 5085593,
+        type: 'image',
+        color: '#10b981',
+        starred: true,
+        folder: 'memories',
+        url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '2',
+        name: 'Ocean_Coastline_Aerial_Cinematic_4K.mp4',
+        date: 'Jun 4, 2026, 5:53 PM',
+        size: '21.94 MB',
+        bytes: 23014356,
+        type: 'video',
+        color: '#f97316',
+        starred: true,
+        folder: 'videos',
+        url: 'https://vjs.zencdn.net/v/oceans.mp4',
+        poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+        thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '3',
+        name: 'Northern_Lights_Aurora_Borealis_8K.jpg',
+        date: 'Jun 4, 2026, 5:03 PM',
+        size: '6.12 MB',
+        bytes: 6417285,
+        type: 'image',
+        color: '#06b6d4',
+        starred: false,
+        folder: 'memories',
+        url: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '4',
+        name: 'Deep_Misty_Redwood_Forest_Sunrise.jpg',
+        date: 'Jun 4, 2026, 4:31 PM',
+        size: '3.94 MB',
+        bytes: 4131389,
+        type: 'image',
+        color: '#84cc16',
+        starred: false,
+        folder: 'documents',
+        url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '5',
+        name: 'Spring_Garden_Blossom_Wildlife.mp4',
+        date: 'Jun 4, 2026, 4:28 PM',
+        size: '1.13 MB',
+        bytes: 1184890,
+        type: 'video',
+        color: '#f43f5e',
+        starred: false,
+        folder: 'videos',
+        url: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4',
+        poster: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=800&q=80',
+        thumb: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '6',
+        name: 'Mount_Fitz_Roy_Patagonia_Summit.jpg',
+        date: 'Jun 4, 2026, 4:13 PM',
+        size: '5.42 MB',
+        bytes: 5683281,
+        type: 'image',
+        color: '#facc15',
+        starred: true,
+        folder: 'memories',
+        url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '7',
+        name: 'Tropical_Sunset_Maldives_Ocean_Wave.jpg',
+        date: 'Jun 4, 2026, 4:12 PM',
+        size: '4.18 MB',
+        bytes: 4383047,
+        type: 'image',
+        color: '#0284c7',
+        starred: false,
+        folder: 'memories',
+        url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '8',
+        name: 'Cascade_Waterfall_Deep_Canyon_Mist.jpg',
+        date: 'Jun 4, 2026, 3:45 PM',
+        size: '6.45 MB',
+        bytes: 6763315,
+        type: 'image',
+        color: '#14b8a6',
+        starred: false,
+        folder: 'work',
+        url: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '9',
+        name: 'Mount_Fuji_Cherry_Blossoms_Lake.jpg',
+        date: 'Jun 4, 2026, 3:20 PM',
+        size: '5.12 MB',
+        bytes: 5368709,
+        type: 'image',
+        color: '#ec4899',
+        starred: false,
+        folder: 'memories',
+        url: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '10',
+        name: 'Cinematic_Fantasy_Forest_Tale.mp4',
+        date: 'Jun 4, 2026, 2:55 PM',
+        size: '4.16 MB',
+        bytes: 4372373,
+        type: 'video',
+        color: '#6366f1',
+        starred: false,
+        folder: 'videos',
+        url: 'https://media.w3.org/2010/05/sintel/trailer.mp4',
+        poster: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80',
+        thumb: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        id: '11',
+        name: 'Lavender_Fields_Sunset_Provence_4K.jpg',
+        date: 'Jun 4, 2026, 2:10 PM',
+        size: '3.88 MB',
+        bytes: 4068474,
+        type: 'image',
+        color: '#8b5cf6',
+        starred: false,
+        folder: 'documents',
+        url: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
+        thumb: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=200&q=80'
+      }
     ];
 
     let currentAccounts = JSON.parse(localStorage.getItem(STORAGE_KEY_ACCOUNTS)) || defaultAccounts;
@@ -1210,16 +1355,20 @@
           }
         };
 
-        tr.innerHTML = `
-          <td class="px-4 py-3"><input type="checkbox" class="rounded accent-blue-600"></td>
-          <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
-            <span class="w-4 h-4 shrink-0 flex items-center justify-center rounded-sm" style="color: ${file.color}">
+        const iconOrThumb = file.thumb
+          ? `<img src="${file.thumb}" alt="${file.name}" class="w-8 h-8 rounded-lg object-cover shadow-sm shrink-0 border border-slate-200/70 dark:border-slate-700 hover:scale-110 transition-transform duration-200">`
+          : `<span class="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-100 dark:bg-slate-800 shrink-0" style="color: ${file.color}">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
               </svg>
-            </span>
-            <span class="truncate max-w-[280px] sm:max-w-md">${file.name}</span>
-          </td>
+            </span>`;
+
+        tr.innerHTML = `
+          <td class="px-4 py-3"><input type="checkbox" class="rounded accent-blue-600"></td>
+          <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
+            ${iconOrThumb}
+            <span class="truncate max-w-[260px] sm:max-w-sm hover:text-blue-600 dark:hover:text-blue-400 transition">${file.name}</span>
+          </td>`;
           <td class="px-4 py-3 text-slate-400 dark:text-slate-500 font-mono text-[11px]">${file.date}</td>
           <td class="px-4 py-3 text-slate-400 dark:text-slate-500 font-mono text-[11px]">${file.size}</td>
           <td class="px-4 py-3">
@@ -1359,6 +1508,20 @@
       document.getElementById('previewFileDate').innerText = f.date;
       document.getElementById('previewFileTarget').innerText = `Node #${(parseInt(id, 10) % currentAccounts.length) + 1} (${currentAccounts[0].name})`;
 
+      const mediaBox = document.getElementById('previewMediaBox');
+      if (mediaBox) {
+        if (f.type === 'image' && f.url) {
+          mediaBox.innerHTML = `<img src="${f.url}" alt="${f.name}" class="w-full max-h-64 object-cover rounded-xl transition hover:scale-105 duration-300">`;
+          mediaBox.classList.remove('hidden');
+        } else if (f.type === 'video' && f.url) {
+          mediaBox.innerHTML = `<video src="${f.url}" ${f.poster ? `poster="${f.poster}"` : ''} controls autoplay class="w-full max-h-64 rounded-xl object-contain bg-black shadow-md"></video>`;
+          mediaBox.classList.remove('hidden');
+        } else {
+          mediaBox.innerHTML = '';
+          mediaBox.classList.add('hidden');
+        }
+      }
+
       document.getElementById('previewDeleteBtn').onclick = () => {
         deleteFile(f.id);
         closePreviewModal();
@@ -1374,6 +1537,8 @@
     }
 
     function closePreviewModal() {
+      const box = document.getElementById('previewMediaBox');
+      if (box) box.innerHTML = '';
       document.getElementById('previewModal').classList.add('hidden');
       document.getElementById('previewModal').classList.remove('flex');
     }
@@ -1389,6 +1554,12 @@
     }
 
     function triggerDownload(fileName) {
+      const file = currentFiles.find(f => f.name === fileName);
+      if (file && file.url) {
+        window.open(file.url, '_blank');
+        showToast(`Streaming full-resolution media: ${fileName}`);
+        return;
+      }
       const element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent('9 in 1 Cloud Storage Gateway file payload: ' + fileName));
       element.setAttribute('download', fileName);
