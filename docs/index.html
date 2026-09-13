@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>9Drive — Unified Multi-Cloud Storage Gateway</title>
-  <meta name="description" content="Connect multiple Google Drive accounts into one virtual storage dashboard by Arafath.">
+  <title>9-in-1 Cloud — Unified Multi-Cloud Storage Gateway</title>
+  <meta name="description" content="Connect up to 9 Google Drive and cloud storage accounts into one unified virtual storage gateway by Arafath.">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -14,6 +14,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -36,8 +37,6 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #fafcfd;
-      color: #0f172a;
     }
     .custom-scrollbar::-webkit-scrollbar {
       width: 5px;
@@ -50,37 +49,76 @@
       background: #cbd5e1;
       border-radius: 9999px;
     }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
+    /* Butter-smooth transition animation */
+    .tab-content {
+      animation: tabFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes tabFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .modal-enter {
+      animation: modalZoom 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes modalZoom {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    /* Smooth global color transitions */
+    * {
+      transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 200ms;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-[#fafcfd] text-slate-800 antialiased flex flex-col md:flex-row">
+<body class="min-h-screen bg-[#fafcfd] dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col md:flex-row transition-colors duration-300">
 
   <!-- ==================== LEFT SIDEBAR ==================== -->
-  <aside class="w-full md:w-64 lg:w-72 bg-white border-r border-slate-200/80 shrink-0 flex flex-col justify-between p-5 min-h-screen z-20">
+  <aside class="w-full md:w-64 lg:w-72 bg-white dark:bg-slate-900 border-r border-slate-200/80 dark:border-slate-800 shrink-0 flex flex-col justify-between p-5 min-h-screen z-20 transition-colors duration-300">
     <div class="space-y-6">
       
-      <!-- Logo -->
+      <!-- Logo: 9-in-1 Cloud -->
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/25 flex items-center justify-center font-bold text-xl">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/25 flex items-center justify-center font-bold text-xl shrink-0">
           <svg viewBox="0 0 40 40" class="h-6 w-6 fill-current">
             <path d="M20 5.5c5.8 0 10.5 4.4 10.5 9.8 0 7.7-7.1 13.6-17.7 18.9a1.2 1.2 0 0 1-1.6-1.6l4.5-8.6A9.6 9.6 0 0 1 9.5 15.3C9.5 9.9 14.2 5.5 20 5.5Zm0 5.2c-2.7 0-4.9 2-4.9 4.6s2.2 4.6 4.9 4.6 4.9-2 4.9-4.6-2.2-4.6-4.9-4.6Z" opacity=".95" />
             <path fill="#bfdbfe" d="M24 24.8c-1.6.9-3.5 1.8-5.7 2.9l-1.5 2.9c5.5-2.9 9.7-5.9 12.1-9.4-1.1 1.1-2.7 2.1-4.9 3.6Z" />
           </svg>
         </div>
-        <span class="text-xl font-extrabold tracking-tight text-slate-950">9Drive</span>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-950 dark:text-white">9-in-1 Cloud</span>
+          <span class="block text-[10px] text-slate-400 dark:text-slate-500 font-semibold tracking-wide">Multi-Cloud Storage Gateway</span>
+        </div>
       </div>
 
       <!-- User Account Card -->
-      <div class="flex items-center justify-between p-2.5 rounded-2xl border border-slate-200/80 bg-white hover:bg-slate-50 transition cursor-pointer">
+      <div class="flex items-center justify-between p-2.5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition cursor-pointer">
         <div class="flex items-center space-x-3 overflow-hidden">
-          <div class="w-8 h-8 rounded-full border border-slate-950 bg-white flex items-center justify-center shrink-0">
-            <div class="w-4 h-4 rounded-full border-2 border-slate-950"></div>
+          <div class="w-8 h-8 rounded-full border border-slate-950 dark:border-slate-200 bg-white dark:bg-slate-800 flex items-center justify-center shrink-0">
+            <div class="w-4 h-4 rounded-full border-2 border-slate-950 dark:border-slate-200"></div>
           </div>
-          <span class="text-xs font-semibold text-slate-700 truncate max-w-[140px]">smartworldarafath@gmail.com</span>
+          <span class="text-xs font-semibold text-slate-700 dark:text-slate-200 truncate max-w-[140px]">smartworldarafath@gmail.com</span>
         </div>
-        <button class="text-slate-400 hover:text-slate-600 p-1">
+        <button onclick="switchTab('settings')" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 p-1">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
@@ -90,23 +128,23 @@
       <!-- Navigation Menu -->
       <nav class="space-y-1 text-sm font-medium">
         <!-- All Files Nav Item -->
-        <button id="navAllFiles" onclick="switchTab('all-files')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
+        <button id="navAllFiles" onclick="switchTab('all-files')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
           </svg>
           <span>All Files</span>
         </button>
 
-        <!-- Quota Tracker Nav Item (Default active in Screenshot 1) -->
-        <button id="navQuotaTracker" onclick="switchTab('quota')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl bg-slate-100/90 text-slate-950 font-bold border border-slate-200/60 transition">
-          <svg class="w-4 h-4 shrink-0 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Quota Tracker Nav Item -->
+        <button id="navQuotaTracker" onclick="switchTab('quota')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl bg-slate-100/90 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border border-slate-200/60 dark:border-slate-700 transition">
+          <svg class="w-4 h-4 shrink-0 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
           <span>Quota Tracker</span>
         </button>
 
         <!-- Shared With Me Nav Item -->
-        <button onclick="alert('Shared With Me demo view')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
+        <button id="navShared" onclick="switchTab('shared')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
           </svg>
@@ -114,7 +152,7 @@
         </button>
 
         <!-- Starred Nav Item -->
-        <button onclick="alert('Starred files demo view')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
+        <button id="navStarred" onclick="switchTab('starred')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
           </svg>
@@ -122,7 +160,7 @@
         </button>
 
         <!-- Setting Nav Item -->
-        <button onclick="alert('Settings modal: Storage routes & PM2 update options')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
+        <button id="navSettings" onclick="switchTab('settings')" class="w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition">
           <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -139,44 +177,44 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-2.5 h-2.5 rounded-sm bg-[#84cc16]"></span>
-            <span class="text-slate-600 font-medium">Photo</span>
+            <span class="text-slate-600 dark:text-slate-400 font-medium">Photo</span>
           </div>
-          <span class="text-slate-900 font-bold">445.24 KB</span>
+          <span id="statPhoto" class="text-slate-900 dark:text-slate-100 font-bold">445.24 KB</span>
         </div>
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-2.5 h-2.5 rounded-sm bg-[#facc15]"></span>
-            <span class="text-slate-600 font-medium">Video</span>
+            <span class="text-slate-600 dark:text-slate-400 font-medium">Video</span>
           </div>
-          <span class="text-slate-900 font-bold">188.05 MB</span>
+          <span id="statVideo" class="text-slate-900 dark:text-slate-100 font-bold">188.05 MB</span>
         </div>
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-2.5 h-2.5 rounded-sm bg-[#22d3ee]"></span>
-            <span class="text-slate-600 font-medium">Document</span>
+            <span class="text-slate-600 dark:text-slate-400 font-medium">Document</span>
           </div>
-          <span class="text-slate-900 font-bold">5.81 MB</span>
+          <span id="statDoc" class="text-slate-900 dark:text-slate-100 font-bold">5.81 MB</span>
         </div>
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-2.5 h-2.5 rounded-sm bg-[#f97316]"></span>
-            <span class="text-slate-600 font-medium">Free Storage</span>
+            <span class="text-slate-600 dark:text-slate-400 font-medium">Free Storage</span>
           </div>
-          <span class="text-slate-900 font-bold">33.94 GB</span>
+          <span id="statFree" class="text-slate-900 dark:text-slate-100 font-bold">33.94 GB</span>
         </div>
       </div>
 
       <!-- Storage Progress Bar -->
       <div class="space-y-1.5 pt-2">
-        <p class="text-[11px] font-semibold text-slate-700">26.06 GB used of 60.00 GB</p>
-        <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-          <div class="bg-blue-600 h-full rounded-full" style="width: 43.4%"></div>
+        <p id="statBarLabel" class="text-[11px] font-semibold text-slate-700 dark:text-slate-300">26.06 GB used of 60.00 GB</p>
+        <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+          <div id="statProgressBar" class="bg-blue-600 h-full rounded-full transition-all duration-700" style="width: 43.4%"></div>
         </div>
       </div>
 
       <!-- Log Out Button -->
       <div class="pt-2">
-        <button onclick="alert('Session active in demo mode')" class="flex items-center space-x-2 text-xs font-bold text-orange-600 hover:text-orange-700 transition">
+        <button onclick="showToast('Active demo user session: smartworldarafath')" class="flex items-center space-x-2 text-xs font-bold text-orange-600 hover:text-orange-700 transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
@@ -190,7 +228,7 @@
   <div class="flex-1 flex flex-col min-w-0">
 
     <!-- Top Header -->
-    <header class="h-20 bg-white border-b border-slate-200/80 px-6 sm:px-8 flex items-center justify-between gap-4 sticky top-0 z-10">
+    <header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 px-6 sm:px-8 flex items-center justify-between gap-4 sticky top-0 z-10 transition-colors duration-300">
       
       <!-- Search Input -->
       <div class="relative flex-1 max-w-lg">
@@ -199,7 +237,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search Folder, Document, Etc" class="w-full pl-10 pr-10 py-2.5 rounded-2xl bg-white border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-sm">
+        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search Folder, Document, Etc" class="w-full pl-10 pr-10 py-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-sm">
         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -209,16 +247,29 @@
 
       <!-- Action buttons -->
       <div class="flex items-center space-x-3 shrink-0">
+        
+        <!-- Dark/Light Mode Switcher -->
+        <button onclick="toggleTheme()" class="w-10 h-10 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm" title="Toggle Dark/Light Mode">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="moonIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
         <!-- Bell Notification Icon -->
-        <button onclick="alert('No new notifications.')" class="w-10 h-10 rounded-2xl border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 transition shadow-sm">
+        <button onclick="showToast('Notification center: 0 unread alerts')" class="w-10 h-10 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition shadow-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
         </button>
 
         <!-- Invite Members Button -->
-        <button onclick="openInviteModal()" class="px-4 py-2.5 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold transition flex items-center space-x-2 shadow-sm">
-          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button onclick="openInviteModal()" class="px-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold transition flex items-center space-x-2 shadow-sm">
+          <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
           <span>Invite Members</span>
@@ -230,32 +281,32 @@
     <!-- Content Container -->
     <main class="flex-1 p-6 sm:p-8 space-y-6">
 
-      <!-- ==================== TAB 1: QUOTA TRACKER (Screenshot 1) ==================== -->
-      <section id="viewQuotaTracker" class="space-y-6">
+      <!-- ==================== TAB 1: QUOTA TRACKER ==================== -->
+      <section id="viewQuotaTracker" class="tab-content space-y-6">
 
         <!-- Page Title & Top Actions -->
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 class="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">Quota Tracker</h1>
-            <p class="text-xs text-slate-400 mt-0.5">Track and manage connected provider storage limits.</p>
+            <h1 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">Quota Tracker</h1>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Track and manage connected provider storage limits.</p>
           </div>
 
           <div class="flex flex-wrap items-center gap-2.5">
-            <button onclick="toggleAutoRefresh(this)" class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm flex items-center space-x-1.5 transition">
+            <button onclick="toggleAutoRefresh(this)" class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold shadow-sm flex items-center space-x-1.5 transition">
               <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span id="autoRefreshLabel">Auto-refresh Off</span>
             </button>
 
-            <button onclick="refreshQuota()" class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm flex items-center space-x-1.5 transition">
+            <button onclick="refreshQuota()" class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 text-xs font-semibold shadow-sm flex items-center space-x-1.5 transition">
               <svg id="refreshSpinner" class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               <span>Refresh</span>
             </button>
 
-            <button onclick="openConnectModal()" class="px-4 py-2 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md shadow-blue-500/20 flex items-center space-x-1.5 transition">
+            <button onclick="openConnectModal()" class="px-4 py-2 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md shadow-blue-500/20 flex items-center space-x-1.5 transition active:scale-95">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
@@ -264,219 +315,75 @@
           </div>
         </div>
 
-        <!-- 4 Top Stat Cards (Screenshot 1) -->
+        <!-- 4 Top Stat Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm">
-            <p class="text-xs font-medium text-slate-400">Total Storage</p>
-            <p class="text-xl sm:text-2xl font-black text-slate-950 mt-1">60.00 GB</p>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition">
+            <p class="text-xs font-medium text-slate-400 dark:text-slate-500">Total Storage</p>
+            <p id="cardTotalStorage" class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white mt-1">60.00 GB</p>
           </div>
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm">
-            <p class="text-xs font-medium text-slate-400">Used Storage</p>
-            <p class="text-xl sm:text-2xl font-black text-slate-950 mt-1">26.06 GB</p>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition">
+            <p class="text-xs font-medium text-slate-400 dark:text-slate-500">Used Storage</p>
+            <p id="cardUsedStorage" class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white mt-1">26.06 GB</p>
           </div>
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm">
-            <p class="text-xs font-medium text-slate-400">Available</p>
-            <p class="text-xl sm:text-2xl font-black text-slate-950 mt-1">33.94 GB</p>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition">
+            <p class="text-xs font-medium text-slate-400 dark:text-slate-500">Available</p>
+            <p id="cardAvailableStorage" class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white mt-1">33.94 GB</p>
           </div>
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm">
-            <p class="text-xs font-medium text-slate-400">Accounts</p>
-            <p class="text-xl sm:text-2xl font-black text-slate-950 mt-1">4</p>
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition">
+            <p class="text-xs font-medium text-slate-400 dark:text-slate-500">Accounts</p>
+            <p id="cardAccountsCount" class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white mt-1">4</p>
           </div>
         </div>
 
         <!-- Filter Tabs Row -->
         <div class="flex items-center space-x-2 text-xs font-semibold">
-          <button class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white text-slate-700 flex items-center space-x-1.5 shadow-sm hover:bg-slate-50">
+          <button class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 flex items-center space-x-1.5 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700">
             <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
             </svg>
             <span>All Providers</span>
           </button>
-          <button class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50">
+          <button class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700">
             All Accounts
           </button>
-          <button class="px-3.5 py-2 rounded-2xl border border-slate-200/80 bg-slate-100 text-slate-950 font-bold shadow-sm flex items-center space-x-1.5">
-            <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button class="px-3.5 py-2 rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-950 dark:text-white font-bold shadow-sm flex items-center space-x-1.5">
+            <svg class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Most available</span>
           </button>
         </div>
 
-        <!-- Connected Drive Cards (Screenshot 1: 4 Cards) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          
-          <!-- Drive Card 1 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xs font-bold text-slate-900">Google Drive</h3>
-                  <p class="text-[11px] text-slate-400 font-mono">smartworldarafath+1@gmail.com</p>
-                </div>
-              </div>
-              <button onclick="pingCard(this)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
-            </div>
-            <div>
-              <div class="flex items-center justify-between text-xs mb-1.5">
-                <div class="flex items-center space-x-1.5">
-                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                  <span class="text-slate-600 font-medium">storage</span>
-                </div>
-                <span class="font-bold text-slate-700">57%</span>
-              </div>
-              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                <div class="bg-yellow-400 h-full rounded-full" style="width: 57%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-              <span>8.48 GB / 15.00 GB</span>
-              <span class="font-medium text-slate-500">Available 6.52 GB</span>
-            </div>
-          </div>
-
-          <!-- Drive Card 2 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xs font-bold text-slate-900">Google Drive</h3>
-                  <p class="text-[11px] text-slate-400 font-mono">smartworldarafath+2@gmail.com</p>
-                </div>
-              </div>
-              <button onclick="pingCard(this)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
-            </div>
-            <div>
-              <div class="flex items-center justify-between text-xs mb-1.5">
-                <div class="flex items-center space-x-1.5">
-                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
-                  <span class="text-slate-600 font-medium">storage</span>
-                </div>
-                <span class="font-bold text-slate-700">70%</span>
-              </div>
-              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                <div class="bg-yellow-400 h-full rounded-full" style="width: 70%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-              <span>10.55 GB / 15.00 GB</span>
-              <span class="font-medium text-slate-500">Available 4.45 GB</span>
-            </div>
-          </div>
-
-          <!-- Drive Card 3 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xs font-bold text-slate-900">Google Drive</h3>
-                  <p class="text-[11px] text-slate-400 font-mono">smartworldarafath+3@gmail.com</p>
-                </div>
-              </div>
-              <button onclick="pingCard(this)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
-            </div>
-            <div>
-              <div class="flex items-center justify-between text-xs mb-1.5">
-                <div class="flex items-center space-x-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span class="text-slate-600 font-medium">storage</span>
-                </div>
-                <span class="font-bold text-slate-700">23%</span>
-              </div>
-              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                <div class="bg-emerald-500 h-full rounded-full" style="width: 23%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-              <span>3.50 GB / 15.00 GB</span>
-              <span class="font-medium text-slate-500">Available 11.50 GB</span>
-            </div>
-          </div>
-
-          <!-- Drive Card 4 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xs font-bold text-slate-900">Google Drive</h3>
-                  <p class="text-[11px] text-slate-400 font-mono">smartworldarafath+4@gmail.com</p>
-                </div>
-              </div>
-              <button onclick="pingCard(this)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
-            </div>
-            <div>
-              <div class="flex items-center justify-between text-xs mb-1.5">
-                <div class="flex items-center space-x-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span class="text-slate-600 font-medium">storage</span>
-                </div>
-                <span class="font-bold text-slate-700">24%</span>
-              </div>
-              <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-                <div class="bg-emerald-500 h-full rounded-full" style="width: 24%"></div>
-              </div>
-            </div>
-            <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
-              <span>3.53 GB / 15.00 GB</span>
-              <span class="font-medium text-slate-500">Available 11.47 GB</span>
-            </div>
-          </div>
-
+        <!-- Connected Drive Cards Grid -->
+        <div id="driveCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Dynamically Rendered -->
         </div>
       </section>
 
-      <!-- ==================== TAB 2: ALL FILES (Screenshot 2) ==================== -->
-      <section id="viewAllFiles" class="space-y-6 hidden">
+      <!-- ==================== TAB 2: ALL FILES ==================== -->
+      <section id="viewAllFiles" class="tab-content space-y-6 hidden">
 
-        <!-- Page Header -->
+        <!-- Page Header & Breadcrumb -->
         <div class="flex items-center justify-between">
-          <h1 class="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">All Files</h1>
+          <div class="space-y-1">
+            <div id="breadcrumb" class="text-xs text-slate-400 dark:text-slate-500 font-medium hidden items-center space-x-1.5">
+              <button onclick="exitFolder()" class="hover:text-blue-600 dark:hover:text-blue-400">All Files</button>
+              <span>/</span>
+              <span id="currentFolderName" class="text-slate-800 dark:text-slate-200 font-bold">memories</span>
+            </div>
+            <h1 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">All Files</h1>
+          </div>
+          
           <div class="flex items-center space-x-2.5">
             <input type="file" id="actualUploadInput" class="hidden" multiple onchange="handleFileUpload(event)">
-            <button onclick="document.getElementById('actualUploadInput').click()" class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold shadow-sm flex items-center space-x-1.5 transition">
-              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onclick="document.getElementById('actualUploadInput').click()" class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold shadow-sm flex items-center space-x-1.5 transition active:scale-95">
+              <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
               </svg>
               <span>Upload</span>
             </button>
-            <button onclick="openNewFolderModal()" class="px-3.5 py-2 rounded-2xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold shadow-sm flex items-center space-x-1.5 transition">
-              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onclick="openNewFolderModal()" class="px-3.5 py-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold shadow-sm flex items-center space-x-1.5 transition active:scale-95">
+              <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
               <span>New Folder</span>
@@ -484,71 +391,67 @@
           </div>
         </div>
 
-        <!-- 4 Big Folder Cards (Screenshot 2: memories, work, documents, videos) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 4 Big Folder Cards (memories, work, documents, videos) -->
+        <div id="foldersContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-          <!-- Folder: memories (orange) -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 transition cursor-pointer group">
-            <button class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 p-1">
+          <div onclick="openFolder('memories')" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 dark:hover:border-blue-500 transition cursor-pointer group hover:-translate-y-0.5">
+            <button onclick="event.stopPropagation(); showToast('Folder actions: memories')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </button>
-            <div class="w-16 h-16 text-[#f97316]">
+            <div class="w-16 h-16 text-[#f97316] transition-transform group-hover:scale-105">
               <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
                 <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
               </svg>
             </div>
-            <h3 class="text-sm font-bold text-slate-900 mt-3 group-hover:text-blue-600 transition">memories</h3>
-            <p class="text-[11px] text-slate-400 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mt-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">memories</h3>
+            <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
           </div>
 
-          <!-- Folder: work (yellow) -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 transition cursor-pointer group">
-            <button class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 p-1">
+          <div onclick="openFolder('work')" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 dark:hover:border-blue-500 transition cursor-pointer group hover:-translate-y-0.5">
+            <button onclick="event.stopPropagation(); showToast('Folder actions: work')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </button>
-            <div class="w-16 h-16 text-[#facc15]">
+            <div class="w-16 h-16 text-[#facc15] transition-transform group-hover:scale-105">
               <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
                 <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
               </svg>
             </div>
-            <h3 class="text-sm font-bold text-slate-900 mt-3 group-hover:text-blue-600 transition">work</h3>
-            <p class="text-[11px] text-slate-400 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mt-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">work</h3>
+            <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
           </div>
 
-          <!-- Folder: documents (green) -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 transition cursor-pointer group">
-            <button class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 p-1">
+          <div onclick="openFolder('documents')" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 dark:hover:border-blue-500 transition cursor-pointer group hover:-translate-y-0.5">
+            <button onclick="event.stopPropagation(); showToast('Folder actions: documents')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </button>
-            <div class="w-16 h-16 text-[#84cc16]">
+            <div class="w-16 h-16 text-[#84cc16] transition-transform group-hover:scale-105">
               <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
                 <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
               </svg>
             </div>
-            <h3 class="text-sm font-bold text-slate-900 mt-3 group-hover:text-blue-600 transition">documents</h3>
-            <p class="text-[11px] text-slate-400 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mt-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">documents</h3>
+            <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">Updated Jun 4, 2026, 6:13 PM</p>
           </div>
 
-          <!-- Folder: videos (blue) -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 transition cursor-pointer group">
-            <button class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 p-1">
+          <div onclick="openFolder('videos')" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm relative flex flex-col items-center justify-center min-h-[180px] hover:border-blue-400 dark:hover:border-blue-500 transition cursor-pointer group hover:-translate-y-0.5">
+            <button onclick="event.stopPropagation(); showToast('Folder actions: videos')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </button>
-            <div class="w-16 h-16 text-[#3b82f6]">
+            <div class="w-16 h-16 text-[#3b82f6] transition-transform group-hover:scale-105">
               <svg fill="currentColor" viewBox="0 0 24 24" class="w-full h-full">
                 <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
               </svg>
             </div>
-            <h3 class="text-sm font-bold text-slate-900 mt-3 group-hover:text-blue-600 transition">videos</h3>
-            <p class="text-[11px] text-slate-400 mt-0.5">Updated Jun 4, 2026, 4:34 PM</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mt-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition">videos</h3>
+            <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">Updated Jun 4, 2026, 4:34 PM</p>
           </div>
 
         </div>
@@ -556,13 +459,13 @@
         <!-- Filter Sub-nav & View Switcher -->
         <div class="flex items-center justify-between pt-2">
           <div class="flex items-center space-x-2 text-xs font-semibold">
-            <button class="px-3.5 py-1.5 rounded-2xl border border-slate-200/80 bg-slate-100 text-slate-950 font-bold shadow-sm flex items-center space-x-1.5">
+            <button class="px-3.5 py-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-950 dark:text-white font-bold shadow-sm flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>Recents</span>
             </button>
-            <button class="px-3.5 py-1.5 rounded-2xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 shadow-sm flex items-center space-x-1.5">
+            <button onclick="switchTab('starred')" class="px-3.5 py-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm flex items-center space-x-1.5 transition">
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
@@ -571,12 +474,12 @@
           </div>
 
           <div class="flex items-center space-x-1 text-slate-400">
-            <button class="p-1.5 rounded-lg hover:bg-slate-100 hover:text-slate-600">
+            <button class="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-600">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
               </svg>
             </button>
-            <button class="p-1.5 rounded-lg bg-slate-100 text-slate-800">
+            <button class="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -584,13 +487,13 @@
           </div>
         </div>
 
-        <!-- Files Table (Screenshot 2: Same files) -->
-        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <!-- Files Table -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
-              <thead class="text-[11px] text-slate-950 font-bold border-b border-slate-100 bg-slate-50/50">
+              <thead class="text-[11px] text-slate-950 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
                 <tr>
-                  <th class="w-10 px-4 py-3"><input type="checkbox" class="rounded accent-blue-600"></th>
+                  <th class="w-10 px-4 py-3"><input type="checkbox" onchange="toggleSelectAll(this)" class="rounded accent-blue-600"></th>
                   <th class="px-4 py-3 font-extrabold">Name</th>
                   <th class="px-4 py-3 font-extrabold">Last Modified</th>
                   <th class="px-4 py-3 font-extrabold">Size</th>
@@ -598,8 +501,8 @@
                   <th class="w-10 px-4 py-3"></th>
                 </tr>
               </thead>
-              <tbody id="filesTableBody" class="divide-y divide-slate-100 text-slate-700">
-                <!-- Populated via Javascript -->
+              <tbody id="filesTableBody" class="divide-y divide-slate-100 dark:divide-slate-800/80 text-slate-700 dark:text-slate-300">
+                <!-- Dynamically Rendered -->
               </tbody>
             </table>
           </div>
@@ -607,13 +510,207 @@
 
       </section>
 
+      <!-- ==================== TAB 3: SHARED WITH ME ==================== -->
+      <section id="viewShared" class="tab-content space-y-6 hidden">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">Shared With Me</h1>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Files and virtual workspaces shared with you by other collaborators.</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-[11px] text-slate-950 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
+                <tr>
+                  <th class="px-4 py-3 font-extrabold">Name</th>
+                  <th class="px-4 py-3 font-extrabold">Owner</th>
+                  <th class="px-4 py-3 font-extrabold">Date Shared</th>
+                  <th class="px-4 py-3 font-extrabold">Size</th>
+                  <th class="w-10 px-4 py-3"></th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800/80 text-slate-700 dark:text-slate-300">
+                <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition">
+                  <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
+                    <span class="text-[#22d3ee]">
+                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </span>
+                    <span>Q3 Financial Forecast Master.xlsx</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-500 dark:text-slate-400 font-mono text-[11px]">cfo@partnercorp.com</td>
+                  <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">Jun 2, 2026</td>
+                  <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">4.12 MB</td>
+                  <td class="px-4 py-3 text-right">
+                    <button onclick="showToast('Downloading Q3 Financial Forecast...')" class="text-blue-600 hover:underline font-semibold">Download</button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition">
+                  <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
+                    <span class="text-[#f97316]">
+                      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    </span>
+                    <span>Product Launch Keynote Presentation.pdf</span>
+                  </td>
+                  <td class="px-4 py-3 text-slate-500 dark:text-slate-400 font-mono text-[11px]">design@studio.agency</td>
+                  <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">May 29, 2026</td>
+                  <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">18.45 MB</td>
+                  <td class="px-4 py-3 text-right">
+                    <button onclick="showToast('Downloading Keynote Presentation...')" class="text-blue-600 hover:underline font-semibold">Download</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: STARRED ==================== -->
+      <section id="viewStarred" class="tab-content space-y-6 hidden">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">Starred Files</h1>
+            <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Quick access to important files you have flagged across your 9-in-1 cloud pool.</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-[11px] text-slate-950 dark:text-white font-bold border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
+                <tr>
+                  <th class="px-4 py-3 font-extrabold">Name</th>
+                  <th class="px-4 py-3 font-extrabold">Last Modified</th>
+                  <th class="px-4 py-3 font-extrabold">Size</th>
+                  <th class="w-10 px-4 py-3"></th>
+                </tr>
+              </thead>
+              <tbody id="starredTableBody" class="divide-y divide-slate-100 dark:divide-slate-800/80 text-slate-700 dark:text-slate-300">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 5: SETTINGS ==================== -->
+      <section id="viewSettings" class="tab-content space-y-6 hidden">
+        <div>
+          <h1 class="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">Settings & Local Hosting Configuration</h1>
+          <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Manage themes, upload streaming policies, API keys, and local self-host gateway connection.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Card 1: Appearance & Theme -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-600/10 text-blue-600 flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white">Appearance & Theme</h3>
+                <p class="text-[11px] text-slate-400">Toggle butter-smooth Dark Mode / Light Mode</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700">
+                <div>
+                  <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">Color Mode</p>
+                  <p id="themeStatusText" class="text-[11px] text-slate-500">Currently using Light Mode</p>
+                </div>
+                <button onclick="toggleTheme()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition shadow-sm active:scale-95">
+                  Toggle Mode
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Upload Routing Policy -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-600/10 text-emerald-600 flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white">Upload Routing Engine</h3>
+                <p class="text-[11px] text-slate-400">Choose how incoming stream chunks are distributed across 9 drives</p>
+              </div>
+            </div>
+
+            <div class="space-y-2 pt-2">
+              <label class="text-xs font-semibold text-slate-700 dark:text-slate-300">Active Routing Strategy</label>
+              <select id="routingSelect" onchange="saveRoutingPolicy(this.value)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
+                <option value="most_available">Most-Available Space (Auto load balances to emptiest account)</option>
+                <option value="round_robin">Round-Robin (Sequentially alternates between connected accounts)</option>
+                <option value="priority">Priority Order (Fills Drive #1 first until capacity, then overflows)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Card 3: Local Hosting & Self-Host Gateway -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm space-y-4 lg:col-span-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-purple-600/10 text-purple-600 flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white">Local Gateway & Self-Host Integration</h3>
+                  <p class="text-[11px] text-slate-400">Run this UI connected to your own local Node.js + MySQL backend</p>
+                </div>
+              </div>
+              <span id="gatewayStatusBadge" class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                Ready (Demo Mode)
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="space-y-1.5">
+                <label class="font-semibold text-slate-700 dark:text-slate-300">Local Backend API URL</label>
+                <input type="text" id="localApiUrl" value="http://localhost:4000" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 font-mono">
+              </div>
+              <div class="space-y-1.5">
+                <label class="font-semibold text-slate-700 dark:text-slate-300">Default Google Drive Root Folder</label>
+                <input type="text" value="9drive" readonly class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-xs text-slate-500 font-mono">
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <div class="flex items-center space-x-2">
+                <button onclick="testLocalBackend()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition shadow-sm active:scale-95">
+                  Test Gateway Connection
+                </button>
+                <button onclick="exportDataJSON()" class="px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition">
+                  Export Catalog (JSON)
+                </button>
+              </div>
+              <button onclick="resetDefaultData()" class="text-xs text-rose-500 hover:text-rose-600 font-semibold">
+                Reset All to Defaults
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </main>
 
   </div>
 
+  <!-- ==================== MODALS ==================== -->
+
   <!-- Connect Drive Modal -->
   <div id="connectModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100 dark:border-slate-800 modal-enter">
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2.5">
           <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center">
@@ -622,94 +719,322 @@
             </svg>
           </div>
           <div>
-            <h3 class="text-sm font-bold text-slate-900">Connect Google Drive</h3>
-            <p class="text-xs text-slate-400">Add another account to 9-in-1 Cloud pool</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white">Connect Google Drive</h3>
+            <p class="text-xs text-slate-400">Add account to 9-in-1 Cloud storage pool</p>
           </div>
         </div>
-        <button onclick="closeConnectModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+        <button onclick="closeConnectModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-lg">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <p class="text-xs text-slate-600 leading-relaxed">
-        Connecting a new Google Drive account will instantly add +15.00 GB to your unified storage pool. Uploads are streamed directly into the dedicated <code class="bg-slate-100 text-blue-600 px-1.5 py-0.5 rounded font-mono">9drive</code> folder.
-      </p>
+
+      <div class="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+        <p>Connecting another Google Drive account expands your unified storage pool by <strong>+15.00 GB</strong>. The backend streams chunks directly into the Google Drive root folder <code class="bg-slate-100 dark:bg-slate-800 text-blue-600 px-1 py-0.5 rounded font-mono">9drive</code> without touching your server disk.</p>
+        <div class="pt-1">
+          <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">Account Email / Label</label>
+          <input type="email" id="newDriveEmailInput" placeholder="e.g. personal.cloud@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:border-blue-500">
+        </div>
+      </div>
+
       <div class="pt-2 flex justify-end space-x-2">
-        <button onclick="closeConnectModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">Cancel</button>
-        <button onclick="simulateConnectDrive()" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/25">Connect Google Account</button>
+        <button onclick="closeConnectModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Cancel</button>
+        <button onclick="confirmConnectDrive()" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 active:scale-95">Link Google Account</button>
       </div>
     </div>
   </div>
 
   <!-- Invite Members Modal -->
   <div id="inviteModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100 dark:border-slate-800 modal-enter">
       <div class="flex items-center justify-between">
-        <h3 class="text-sm font-bold text-slate-900">Invite Members</h3>
-        <button onclick="closeInviteModal()" class="text-slate-400 hover:text-slate-600 p-1">
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white">Invite Team Members</h3>
+        <button onclick="closeInviteModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <input type="email" placeholder="Enter colleague email..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+      <p class="text-xs text-slate-500 dark:text-slate-400">Share your 9-in-1 Cloud pooled storage folders with collaborators securely.</p>
+      <input type="email" id="inviteEmailInput" placeholder="colleague@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-500">
       <div class="flex justify-end space-x-2">
-        <button onclick="closeInviteModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600">Cancel</button>
-        <button onclick="alert('Invitation sent!'); closeInviteModal();" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700">Send Invite</button>
+        <button onclick="closeInviteModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400">Cancel</button>
+        <button onclick="sendInvite()" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 active:scale-95">Send Invitation</button>
       </div>
     </div>
   </div>
 
   <!-- New Folder Modal -->
   <div id="folderModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100 dark:border-slate-800 modal-enter">
       <div class="flex items-center justify-between">
-        <h3 class="text-sm font-bold text-slate-900">Create New Folder</h3>
-        <button onclick="closeNewFolderModal()" class="text-slate-400 hover:text-slate-600 p-1">
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white">Create Virtual Folder</h3>
+        <button onclick="closeNewFolderModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <input type="text" id="newFolderName" placeholder="Folder name..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-blue-500">
+      <p class="text-xs text-slate-500 dark:text-slate-400">Virtual folders organize files in your 9-in-1 Cloud catalog regardless of physical storage drive.</p>
+      <input type="text" id="newFolderName" placeholder="Folder name (e.g. Projects, Client Work)..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-500">
       <div class="flex justify-end space-x-2">
-        <button onclick="closeNewFolderModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600">Cancel</button>
-        <button onclick="createFolder()" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700">Create</button>
+        <button onclick="closeNewFolderModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400">Cancel</button>
+        <button onclick="createFolder()" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 active:scale-95">Create Folder</button>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript Application Logic -->
+  <!-- File Preview & Action Modal -->
+  <div id="previewModal" class="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-100 dark:border-slate-800 modal-enter">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white truncate max-w-[260px]" id="previewFileName">File Preview</h3>
+        </div>
+        <button onclick="closePreviewModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 space-y-2 text-xs">
+        <div class="flex justify-between"><span class="text-slate-400">Size:</span><span id="previewFileSize" class="font-bold text-slate-800 dark:text-slate-100">0 KB</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Stored on Node:</span><span id="previewFileTarget" class="font-mono text-blue-600 dark:text-blue-400">Google Drive #1</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Last Modified:</span><span id="previewFileDate" class="text-slate-600 dark:text-slate-300">Just now</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Stream Status:</span><span class="text-emerald-500 font-semibold">Active in Virtual Pool</span></div>
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-2">
+        <button id="previewDeleteBtn" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50">Delete</button>
+        <button id="previewDownloadBtn" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 active:scale-95">Download Stream</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Alert Popup -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 max-w-sm bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 rounded-2xl shadow-xl border border-slate-700 dark:border-slate-300 text-xs font-semibold flex items-center space-x-2.5 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Action completed</span>
+  </div>
+
+  <!-- ==================== APPLICATION SCRIPT ==================== -->
   <script>
-    // Files exactly matching Screenshot 2
-    const initialFiles = [
-      { id: '1', name: 'materai.jpeg', date: 'Jun 4, 2026, 6:11 PM', size: '36.00 KB', type: 'image', color: '#facc15' },
-      { id: '2', name: 'Otakudesu_BlkClover-138_480p.mp4', date: 'Jun 4, 2026, 5:53 PM', size: '58.82 MB', type: 'video', color: '#f97316' },
-      { id: '3', name: '[MV] 가호 - Running [스타트업 OST Part.5 (START-UP OST Part.5)].mp3', date: 'Jun 4, 2026, 5:03 PM', size: '3.14 MB', type: 'audio', color: '#84cc16' },
-      { id: '4', name: '2 hour stopwatch digital workout clock.mp4', date: 'Jun 4, 2026, 4:31 PM', size: '129.23 MB', type: 'video', color: '#f97316' },
-      { id: '5', name: '14-Jurnal-J-TOS_Vol.-1-No.-2-Desember-2018_Irfan-&-Deny.pdf', date: 'Jun 4, 2026, 4:28 PM', size: '2.67 MB', type: 'doc', color: '#22d3ee' },
-      { id: '6', name: '2.png', date: 'Jun 4, 2026, 4:13 PM', size: '92.05 KB', type: 'image', color: '#facc15' },
-      { id: '7', name: '1_A7753140002167_20220328182324989_base.jpg', date: 'Jun 4, 2026, 4:12 PM', size: '248.66 KB', type: 'image', color: '#facc15' }
+    // State management persisted in LocalStorage
+    const STORAGE_KEY_FILES = '9in1_cloud_files';
+    const STORAGE_KEY_ACCOUNTS = '9in1_cloud_accounts';
+    const STORAGE_KEY_THEME = '9in1_cloud_theme';
+    const STORAGE_KEY_ROUTING = '9in1_cloud_routing';
+
+    const defaultAccounts = [
+      { id: 1, name: 'Google Drive', email: 'smartworldarafath+1@gmail.com', usedGB: 8.48, totalGB: 15.00, color: 'bg-yellow-400', dot: 'bg-yellow-400' },
+      { id: 2, name: 'Google Drive', email: 'smartworldarafath+2@gmail.com', usedGB: 10.55, totalGB: 15.00, color: 'bg-yellow-400', dot: 'bg-yellow-400' },
+      { id: 3, name: 'Google Drive', email: 'smartworldarafath+3@gmail.com', usedGB: 3.50, totalGB: 15.00, color: 'bg-emerald-500', dot: 'bg-emerald-500' },
+      { id: 4, name: 'Google Drive', email: 'smartworldarafath+4@gmail.com', usedGB: 3.53, totalGB: 15.00, color: 'bg-emerald-500', dot: 'bg-emerald-500' }
     ];
 
-    let currentFiles = [...initialFiles];
+    const defaultFiles = [
+      { id: '1', name: 'materai.jpeg', date: 'Jun 4, 2026, 6:11 PM', size: '36.00 KB', bytes: 36864, type: 'image', color: '#facc15', starred: false, folder: 'documents' },
+      { id: '2', name: 'Otakudesu_BlkClover-138_480p.mp4', date: 'Jun 4, 2026, 5:53 PM', size: '58.82 MB', bytes: 61678551, type: 'video', color: '#f97316', starred: true, folder: 'videos' },
+      { id: '3', name: '[MV] 가호 - Running [스타트업 OST Part.5 (START-UP OST Part.5)].mp3', date: 'Jun 4, 2026, 5:03 PM', size: '3.14 MB', bytes: 3292528, type: 'audio', color: '#84cc16', starred: false, folder: 'memories' },
+      { id: '4', name: '2 hour stopwatch digital workout clock.mp4', date: 'Jun 4, 2026, 4:31 PM', size: '129.23 MB', bytes: 135510650, type: 'video', color: '#f97316', starred: false, folder: 'videos' },
+      { id: '5', name: '14-Jurnal-J-TOS_Vol.-1-No.-2-Desember-2018_Irfan-&-Deny.pdf', date: 'Jun 4, 2026, 4:28 PM', size: '2.67 MB', bytes: 2800000, type: 'doc', color: '#22d3ee', starred: false, folder: 'work' },
+      { id: '6', name: '2.png', date: 'Jun 4, 2026, 4:13 PM', size: '92.05 KB', bytes: 94259, type: 'image', color: '#facc15', starred: true, folder: 'memories' },
+      { id: '7', name: '1_A7753140002167_20220328182324989_base.jpg', date: 'Jun 4, 2026, 4:12 PM', size: '248.66 KB', bytes: 254627, type: 'image', color: '#facc15', starred: false, folder: 'memories' }
+    ];
 
+    let currentAccounts = JSON.parse(localStorage.getItem(STORAGE_KEY_ACCOUNTS)) || defaultAccounts;
+    let currentFiles = JSON.parse(localStorage.getItem(STORAGE_KEY_FILES)) || defaultFiles;
+    let currentFolderFilter = null;
+    let activeTabId = 'quota';
+
+    // ==================== THEME CONTROLLER ====================
+    function initTheme() {
+      const savedTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'light';
+      applyTheme(savedTheme);
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+      showToast(`Switched to ${isDark ? 'Light' : 'Dark'} Mode`);
+    }
+
+    function applyTheme(theme) {
+      const sun = document.getElementById('sunIcon');
+      const moon = document.getElementById('moonIcon');
+      const statusText = document.getElementById('themeStatusText');
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        if (sun) sun.classList.remove('hidden');
+        if (moon) moon.classList.add('hidden');
+        if (statusText) statusText.innerText = 'Currently using Dark Mode';
+        localStorage.setItem(STORAGE_KEY_THEME, 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        if (sun) sun.classList.add('hidden');
+        if (moon) moon.classList.remove('hidden');
+        if (statusText) statusText.innerText = 'Currently using Light Mode';
+        localStorage.setItem(STORAGE_KEY_THEME, 'light');
+      }
+    }
+
+    // ==================== TOAST CONTROLLER ====================
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastMessage');
+      text.innerText = msg;
+      toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // ==================== TAB SWITCHER ====================
+    function switchTab(tab) {
+      activeTabId = tab;
+      const views = {
+        'quota': document.getElementById('viewQuotaTracker'),
+        'all-files': document.getElementById('viewAllFiles'),
+        'shared': document.getElementById('viewShared'),
+        'starred': document.getElementById('viewStarred'),
+        'settings': document.getElementById('viewSettings')
+      };
+
+      const navButtons = {
+        'quota': document.getElementById('navQuotaTracker'),
+        'all-files': document.getElementById('navAllFiles'),
+        'shared': document.getElementById('navShared'),
+        'starred': document.getElementById('navStarred'),
+        'settings': document.getElementById('navSettings')
+      };
+
+      // Hide all and reset button styles
+      Object.keys(views).forEach(key => {
+        if (views[key]) views[key].classList.add('hidden');
+        if (navButtons[key]) {
+          navButtons[key].className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition';
+        }
+      });
+
+      // Show active tab
+      if (views[tab]) {
+        views[tab].classList.remove('hidden');
+        views[tab].classList.remove('tab-content');
+        void views[tab].offsetWidth; // Trigger reflow for butter smooth animation
+        views[tab].classList.add('tab-content');
+      }
+
+      if (navButtons[tab]) {
+        navButtons[tab].className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl bg-slate-100/90 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border border-slate-200/60 dark:border-slate-700 transition';
+      }
+
+      if (tab === 'starred') renderStarredFiles();
+      if (tab === 'all-files') renderFiles();
+    }
+
+    // ==================== STATS & METERS CALCULATOR ====================
+    function updateStorageStats() {
+      let totalGB = currentAccounts.reduce((sum, a) => sum + a.totalGB, 0);
+      let usedGB = currentAccounts.reduce((sum, a) => sum + a.usedGB, 0);
+      let availGB = totalGB - usedGB;
+      let pct = ((usedGB / totalGB) * 100).toFixed(1);
+
+      document.getElementById('cardTotalStorage').innerText = totalGB.toFixed(2) + ' GB';
+      document.getElementById('cardUsedStorage').innerText = usedGB.toFixed(2) + ' GB';
+      document.getElementById('cardAvailableStorage').innerText = availGB.toFixed(2) + ' GB';
+      document.getElementById('cardAccountsCount').innerText = currentAccounts.length;
+
+      document.getElementById('statFree').innerText = availGB.toFixed(2) + ' GB';
+      document.getElementById('statBarLabel').innerText = `${usedGB.toFixed(2)} GB used of ${totalGB.toFixed(2)} GB`;
+      document.getElementById('statProgressBar').style.width = `${pct}%`;
+
+      renderDriveCards();
+      saveState();
+    }
+
+    function renderDriveCards() {
+      const container = document.getElementById('driveCardsGrid');
+      container.innerHTML = '';
+
+      currentAccounts.forEach(acc => {
+        const pct = Math.min(100, Math.round((acc.usedGB / acc.totalGB) * 100));
+        const avail = (acc.totalGB - acc.usedGB).toFixed(2);
+        const barColor = pct >= 75 ? 'bg-rose-500' : pct >= 50 ? 'bg-yellow-400' : 'bg-emerald-500';
+
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm space-y-4 hover:shadow-md transition hover:-translate-y-0.5';
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xs font-bold text-slate-900 dark:text-white">${acc.name}</h3>
+                <p class="text-[11px] text-slate-400 dark:text-slate-500 font-mono">${acc.email}</p>
+              </div>
+            </div>
+            <button onclick="pingSingleCard(this)" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <div class="flex items-center justify-between text-xs mb-1.5">
+              <div class="flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full ${barColor}"></span>
+                <span class="text-slate-600 dark:text-slate-400 font-medium">storage</span>
+              </div>
+              <span class="font-bold text-slate-700 dark:text-slate-200">${pct}%</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+              <div class="${barColor} h-full rounded-full transition-all duration-700" style="width: ${pct}%"></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500 pt-1">
+            <span>${acc.usedGB.toFixed(2)} GB / ${acc.totalGB.toFixed(2)} GB</span>
+            <span class="font-medium text-slate-500 dark:text-slate-400">Available ${avail} GB</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // ==================== FILES TABLE RENDERING ====================
     function renderFiles(list = currentFiles) {
       const tbody = document.getElementById('filesTableBody');
       tbody.innerHTML = '';
 
-      if (list.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-slate-400">No files found.</td></tr>`;
+      const filtered = currentFolderFilter ? list.filter(f => f.folder === currentFolderFilter) : list;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-10 text-slate-400 dark:text-slate-500">No files found in this directory.</td></tr>`;
         return;
       }
 
-      list.forEach(file => {
+      filtered.forEach(file => {
         const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-50/80 transition cursor-pointer';
+        tr.className = 'hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition cursor-pointer';
+        tr.onclick = (e) => {
+          if (!e.target.closest('button') && !e.target.closest('input')) {
+            openPreview(file.id);
+          }
+        };
+
         tr.innerHTML = `
           <td class="px-4 py-3"><input type="checkbox" class="rounded accent-blue-600"></td>
-          <td class="px-4 py-3 font-semibold text-slate-900 flex items-center space-x-3">
+          <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
             <span class="w-4 h-4 shrink-0 flex items-center justify-center rounded-sm" style="color: ${file.color}">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
@@ -717,103 +1042,188 @@
             </span>
             <span class="truncate max-w-[280px] sm:max-w-md">${file.name}</span>
           </td>
-          <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">${file.date}</td>
-          <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">${file.size}</td>
+          <td class="px-4 py-3 text-slate-400 dark:text-slate-500 font-mono text-[11px]">${file.date}</td>
+          <td class="px-4 py-3 text-slate-400 dark:text-slate-500 font-mono text-[11px]">${file.size}</td>
           <td class="px-4 py-3">
             <div class="flex items-center space-x-2">
-              <div class="w-4 h-4 rounded-full border border-slate-950 bg-white flex items-center justify-center">
-                <div class="w-2 h-2 rounded-full bg-slate-950"></div>
+              <div class="w-4 h-4 rounded-full border border-slate-950 dark:border-slate-300 bg-white dark:bg-slate-800 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 dark:bg-slate-300"></div>
               </div>
-              <span class="text-slate-500 text-[11px] font-mono">smartworldarafath@gmail.com</span>
+              <span class="text-slate-500 dark:text-slate-400 text-[11px] font-mono">smartworldarafath@gmail.com</span>
             </div>
           </td>
           <td class="px-4 py-3 text-right">
-            <button class="text-slate-400 hover:text-slate-600 p-1" onclick="alert('Options for ${file.name}')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </button>
+            <div class="flex items-center justify-end space-x-1">
+              <button onclick="event.stopPropagation(); toggleStar('${file.id}')" class="p-1 text-slate-400 hover:text-yellow-500 transition">
+                <svg class="w-4 h-4 ${file.starred ? 'fill-yellow-400 text-yellow-400' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+              </button>
+              <button onclick="event.stopPropagation(); openPreview('${file.id}')" class="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+              </button>
+            </div>
           </td>
         `;
         tbody.appendChild(tr);
       });
     }
 
-    // Switch between "Quota Tracker" and "All Files" tabs
-    function switchTab(tab) {
-      const viewQuota = document.getElementById('viewQuotaTracker');
-      const viewFiles = document.getElementById('viewAllFiles');
-      const navQuota = document.getElementById('navQuotaTracker');
-      const navFiles = document.getElementById('navAllFiles');
+    function renderStarredFiles() {
+      const tbody = document.getElementById('starredTableBody');
+      tbody.innerHTML = '';
 
-      if (tab === 'quota') {
-        viewQuota.classList.remove('hidden');
-        viewFiles.classList.add('hidden');
+      const starred = currentFiles.filter(f => f.starred);
+      if (starred.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-10 text-slate-400">No starred files yet. Click the star icon next to any file.</td></tr>`;
+        return;
+      }
 
-        navQuota.className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl bg-slate-100/90 text-slate-950 font-bold border border-slate-200/60 transition';
-        navFiles.className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition';
-      } else {
-        viewQuota.classList.add('hidden');
-        viewFiles.classList.remove('hidden');
+      starred.forEach(file => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition cursor-pointer';
+        tr.onclick = () => openPreview(file.id);
+        tr.innerHTML = `
+          <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white flex items-center space-x-3">
+            <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span>${file.name}</span>
+          </td>
+          <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">${file.date}</td>
+          <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">${file.size}</td>
+          <td class="px-4 py-3 text-right">
+            <button onclick="event.stopPropagation(); toggleStar('${file.id}')" class="text-xs text-rose-500 hover:underline">Unstar</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
 
-        navFiles.className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl bg-slate-100/90 text-slate-950 font-bold border border-slate-200/60 transition';
-        navQuota.className = 'w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-2xl text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition';
+    function toggleStar(id) {
+      const f = currentFiles.find(item => item.id === id);
+      if (f) {
+        f.starred = !f.starred;
+        renderFiles();
+        if (activeTabId === 'starred') renderStarredFiles();
+        saveState();
+        showToast(f.starred ? `Added "${f.name}" to Starred` : `Removed "${f.name}" from Starred`);
       }
     }
 
+    // ==================== FOLDER NAVIGATION ====================
+    function openFolder(folderName) {
+      currentFolderFilter = folderName;
+      document.getElementById('breadcrumb').classList.remove('hidden');
+      document.getElementById('breadcrumb').classList.add('flex');
+      document.getElementById('currentFolderName').innerText = folderName;
+      document.getElementById('foldersContainer').classList.add('hidden');
+      renderFiles();
+      showToast(`Navigated into /${folderName}`);
+    }
+
+    function exitFolder() {
+      currentFolderFilter = null;
+      document.getElementById('breadcrumb').classList.add('hidden');
+      document.getElementById('breadcrumb').classList.remove('flex');
+      document.getElementById('foldersContainer').classList.remove('hidden');
+      renderFiles();
+    }
+
+    // ==================== SEARCH ENGINE ====================
     function handleSearch() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const filtered = currentFiles.filter(f => f.name.toLowerCase().includes(query));
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      if (!q) {
+        renderFiles(currentFiles);
+        return;
+      }
+      const filtered = currentFiles.filter(f => f.name.toLowerCase().includes(q) || (f.folder && f.folder.toLowerCase().includes(q)));
       renderFiles(filtered);
     }
 
-    function pingCard(btn) {
-      btn.classList.add('animate-spin');
-      setTimeout(() => {
-        btn.classList.remove('animate-spin');
-        alert('Connected Google Drive synchronized successfully. Latency: 38ms');
-      }, 600);
-    }
-
-    function refreshQuota() {
-      const icon = document.getElementById('refreshSpinner');
-      icon.classList.add('animate-spin');
-      setTimeout(() => {
-        icon.classList.remove('animate-spin');
-        alert('Quota limits refreshed. All 4 storage providers operating within quotas.');
-      }, 700);
-    }
-
-    function toggleAutoRefresh(btn) {
-      const lbl = document.getElementById('autoRefreshLabel');
-      if (lbl.innerText.includes('Off')) {
-        lbl.innerText = 'Auto-refresh On';
-        btn.classList.add('bg-blue-50', 'text-blue-600', 'border-blue-200');
-      } else {
-        lbl.innerText = 'Auto-refresh Off';
-        btn.classList.remove('bg-blue-50', 'text-blue-600', 'border-blue-200');
-      }
-    }
-
+    // ==================== FILE UPLOAD SIMULATOR ====================
     function handleFileUpload(event) {
       const files = event.target.files;
       if (!files || files.length === 0) return;
+
       Array.from(files).forEach(f => {
         const mb = (f.size / (1024 * 1024)).toFixed(2);
         const newEntry = {
-          id: Date.now() + '',
+          id: Date.now() + '' + Math.floor(Math.random() * 1000),
           name: f.name,
           date: 'Just now',
-          size: mb > 1 ? `${mb} MB` : `${Math.round(f.size / 1024)} KB`,
+          size: mb > 1 ? `${mb} MB` : `${Math.max(1, Math.round(f.size / 1024))} KB`,
+          bytes: f.size,
           type: 'doc',
-          color: '#3b82f6'
+          color: '#3b82f6',
+          starred: false,
+          folder: currentFolderFilter || 'documents'
         };
+
+        // Add to account storage
+        const targetAcc = currentAccounts[0];
+        targetAcc.usedGB = parseFloat((targetAcc.usedGB + (f.size / (1024 * 1024 * 1024))).toFixed(2));
+
         currentFiles.unshift(newEntry);
       });
+
       renderFiles();
-      alert(`File uploaded and streamed directly to Google Drive '9drive' folder.`);
+      updateStorageStats();
+      showToast(`File uploaded and streamed to Google Drive '9drive' folder!`);
+      event.target.value = '';
     }
 
+    // ==================== PREVIEW MODAL ====================
+    function openPreview(id) {
+      const f = currentFiles.find(item => item.id === id);
+      if (!f) return;
+
+      document.getElementById('previewFileName').innerText = f.name;
+      document.getElementById('previewFileSize').innerText = f.size;
+      document.getElementById('previewFileDate').innerText = f.date;
+      document.getElementById('previewFileTarget').innerText = `Node #${(parseInt(id, 10) % currentAccounts.length) + 1} (${currentAccounts[0].name})`;
+
+      document.getElementById('previewDeleteBtn').onclick = () => {
+        deleteFile(f.id);
+        closePreviewModal();
+      };
+
+      document.getElementById('previewDownloadBtn').onclick = () => {
+        triggerDownload(f.name);
+        closePreviewModal();
+      };
+
+      document.getElementById('previewModal').classList.remove('hidden');
+      document.getElementById('previewModal').classList.add('flex');
+    }
+
+    function closePreviewModal() {
+      document.getElementById('previewModal').classList.add('hidden');
+      document.getElementById('previewModal').classList.remove('flex');
+    }
+
+    function deleteFile(id) {
+      const f = currentFiles.find(item => item.id === id);
+      if (!f) return;
+      currentFiles = currentFiles.filter(item => item.id !== id);
+      renderFiles();
+      if (activeTabId === 'starred') renderStarredFiles();
+      saveState();
+      showToast(`Deleted "${f.name}"`);
+    }
+
+    function triggerDownload(fileName) {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent('9-in-1 Cloud Storage Gateway file stream payload: ' + fileName));
+      element.setAttribute('download', fileName);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      showToast(`Downloaded ${fileName}`);
+    }
+
+    // ==================== CONNECT DRIVE MODAL ====================
     function openConnectModal() {
       document.getElementById('connectModal').classList.remove('hidden');
       document.getElementById('connectModal').classList.add('flex');
@@ -822,11 +1232,32 @@
       document.getElementById('connectModal').classList.add('hidden');
       document.getElementById('connectModal').classList.remove('flex');
     }
-    function simulateConnectDrive() {
+
+    function confirmConnectDrive() {
+      const email = document.getElementById('newDriveEmailInput').value.trim() || `smartworldarafath+${currentAccounts.length + 1}@gmail.com`;
+      if (currentAccounts.length >= 9) {
+        alert("Maximum 9 cloud drives connected in 9-in-1 Cloud pool.");
+        closeConnectModal();
+        return;
+      }
+
+      const newId = currentAccounts.length + 1;
+      currentAccounts.push({
+        id: newId,
+        name: 'Google Drive',
+        email: email,
+        usedGB: 1.25,
+        totalGB: 15.00,
+        color: 'bg-emerald-500',
+        dot: 'bg-emerald-500'
+      });
+
       closeConnectModal();
-      alert('Google Drive OAuth handoff initiated. Account linked successfully to 9Drive pool.');
+      updateStorageStats();
+      showToast(`Connected Drive #${newId} (+15 GB added to pool)`);
     }
 
+    // ==================== INVITE MODAL ====================
     function openInviteModal() {
       document.getElementById('inviteModal').classList.remove('hidden');
       document.getElementById('inviteModal').classList.add('flex');
@@ -835,7 +1266,13 @@
       document.getElementById('inviteModal').classList.add('hidden');
       document.getElementById('inviteModal').classList.remove('flex');
     }
+    function sendInvite() {
+      const email = document.getElementById('inviteEmailInput').value.trim();
+      if (email) showToast(`Workspace invitation sent to ${email}`);
+      closeInviteModal();
+    }
 
+    // ==================== NEW FOLDER MODAL ====================
     function openNewFolderModal() {
       document.getElementById('folderModal').classList.remove('hidden');
       document.getElementById('folderModal').classList.add('flex');
@@ -845,15 +1282,99 @@
       document.getElementById('folderModal').classList.remove('flex');
     }
     function createFolder() {
-      const val = document.getElementById('newFolderName').value.trim();
-      if (val) {
-        alert(`Virtual folder "${val}" created in SQLite catalog.`);
+      const name = document.getElementById('newFolderName').value.trim();
+      if (name) {
+        showToast(`Created virtual folder "/${name}"`);
       }
       closeNewFolderModal();
     }
 
-    // Initialize on page load
+    // ==================== SETTINGS & LOCAL HOSTING ====================
+    function testLocalBackend() {
+      const url = document.getElementById('localApiUrl').value.trim();
+      showToast(`Pinging local gateway at ${url}...`);
+
+      fetch(url + '/api/v1/health', { mode: 'cors' })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('gatewayStatusBadge').innerText = 'Online (Connected)';
+          document.getElementById('gatewayStatusBadge').className = 'text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300';
+          showToast(`Connected to local 9-in-1 Cloud gateway server!`);
+        })
+        .catch(() => {
+          // Fallback demo indicator
+          document.getElementById('gatewayStatusBadge').innerText = 'Local Server Standby';
+          showToast(`Ready for local hosting: start backend with "npm run dev" on port 4000.`);
+        });
+    }
+
+    function exportDataJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ files: currentFiles, accounts: currentAccounts }, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "9in1-cloud-backup.json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('Exported catalog backup JSON.');
+    }
+
+    function resetDefaultData() {
+      if (confirm('Reset demo state to initial defaults?')) {
+        localStorage.clear();
+        currentAccounts = [...defaultAccounts];
+        currentFiles = [...defaultFiles];
+        updateStorageStats();
+        renderFiles();
+        showToast('Reset to original default demo state.');
+      }
+    }
+
+    function pingSingleCard(btn) {
+      btn.classList.add('animate-spin');
+      setTimeout(() => {
+        btn.classList.remove('animate-spin');
+        showToast('Google Drive OAuth token verified (32ms latency).');
+      }, 500);
+    }
+
+    function refreshQuota() {
+      const icon = document.getElementById('refreshSpinner');
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+        updateStorageStats();
+        showToast('Storage quotas refreshed across all connected drives.');
+      }, 600);
+    }
+
+    function toggleAutoRefresh(btn) {
+      const lbl = document.getElementById('autoRefreshLabel');
+      if (lbl.innerText.includes('Off')) {
+        lbl.innerText = 'Auto-refresh On';
+        btn.classList.add('bg-blue-50', 'dark:bg-blue-950', 'text-blue-600', 'border-blue-200');
+        showToast('Auto-refresh activated (checks every 30s).');
+      } else {
+        lbl.innerText = 'Auto-refresh Off';
+        btn.classList.remove('bg-blue-50', 'dark:bg-blue-950', 'text-blue-600', 'border-blue-200');
+        showToast('Auto-refresh deactivated.');
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY_FILES, JSON.stringify(currentFiles));
+      localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(currentAccounts));
+    }
+
+    function toggleSelectAll(cb) {
+      const checkboxes = document.querySelectorAll('#filesTableBody input[type="checkbox"]');
+      checkboxes.forEach(c => c.checked = cb.checked);
+    }
+
+    // ==================== MOUNT ====================
     window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateStorageStats();
       renderFiles();
     });
   </script>
