@@ -8,8 +8,6 @@
 
 <br/>
 
-[![Forks](https://img.shields.io/badge/Forks-389-orange?style=for-the-badge&logo=git&logoColor=white)](https://github.com/smartworldarafath/9-in-1-Cloud/network/members)
-[![Stars](https://img.shields.io/badge/Stars-1.2k%2B-yellow?style=for-the-badge&logo=star&logoColor=white)](https://github.com/smartworldarafath/9-in-1-Cloud/stargazers)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-brightgreen?style=for-the-badge&logo=githubpages&logoColor=white)](https://smartworldarafath.github.io/9-in-1-Cloud/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=for-the-badge)](LICENSE)
 
