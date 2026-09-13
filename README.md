@@ -277,6 +277,31 @@ Contributions, feature requests, and issue reports are welcomed!
 
 ---
 
+## ☕ Support / Buy Me a Coffee
+
+If you find **9-in-1 Cloud** helpful and want to support ongoing development and maintenance, consider buying me a coffee!
+
+<div align="center">
+
+<a href="https://www.supportkori.com/arafathrahman" target="_blank">
+  <img src="https://img.shields.io/badge/Support_Me-SupportKori-FF5E5B?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Support Me on SupportKori" />
+</a>
+
+<br/><br/>
+
+<a href="https://www.supportkori.com/arafathrahman" target="_blank">
+  <img src="assets/supportkori-qr.jpg" alt="SupportKori QR Code - Arafath Rahman" width="220" style="border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+</a>
+
+<br/><br/>
+
+Scan the QR code or visit:  
+👉 **[https://www.supportkori.com/arafathrahman](https://www.supportkori.com/arafathrahman)**
+
+</div>
+
+---
+
 ## 📄 License & Copyright
 
 Distributed under the **Apache License, Version 2.0**. See the [LICENSE](LICENSE) file for complete details.
