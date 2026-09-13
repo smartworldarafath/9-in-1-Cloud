@@ -37,12 +37,33 @@
     }
   </script>
   
-  <style>
+    <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
     }
     
+    /* Interactive Mouse Glowing Spotlight Follower */
+    .mouse-glow {
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      /* Light Mode: Dim Soft Light-Green Glow */
+      background: radial-gradient(circle, rgba(74, 222, 128, 0.28) 0%, rgba(34, 197, 94, 0.12) 32%, rgba(134, 239, 172, 0.03) 58%, transparent 75%);
+      filter: blur(42px);
+      transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      will-change: left, top;
+    }
+    .dark .mouse-glow {
+      /* Dark Mode: Dim Soft White Glowing Light */
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.08) 32%, rgba(255, 255, 255, 0.01) 58%, transparent 75%);
+      filter: blur(50px);
+    }
+
     /* Liquid Glass Aesthetic */
     .liquid-glass {
       background: rgba(255, 255, 255, 0.72);
@@ -76,19 +97,163 @@
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .liquid-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px -6px rgba(59, 130, 246, 0.15), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px -6px rgba(59, 130, 246, 0.18), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
     }
     .dark .liquid-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.65);
+    }
+
+    /* 3D Button Framework */
+    .btn-3d {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      user-select: none;
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.2s ease,
+                  border-color 0.2s ease,
+                  color 0.2s ease;
+    }
+    .btn-3d:active {
+      transform: translateY(2px) !important;
+    }
+
+    /* 3D Primary Button (Blue Gradient + 3D Rim) */
+    .btn-3d-primary {
+      background: linear-gradient(180deg, #3b82f6 0%, #2563eb 60%, #1d4ed8 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      box-shadow: 0 4px 0 #1e40af, 0 8px 18px rgba(37, 99, 235, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+    }
+    .btn-3d-primary:hover {
+      background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 60%, #2563eb 100%) !important;
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 6px 0 #1e40af, 0 14px 26px rgba(37, 99, 235, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+    }
+    .btn-3d-primary:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 #1e40af, 0 3px 8px rgba(37, 99, 235, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 3D Secondary Button (Glass + 3D Rim) */
+    .btn-3d-secondary {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%) !important;
+      color: #0f172a !important;
+      border: 1px solid rgba(203, 213, 225, 0.9) !important;
+      box-shadow: 0 3px 0 #cbd5e1, 0 6px 14px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    }
+    .dark .btn-3d-secondary {
+      background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
+      color: #f8fafc !important;
+      border: 1px solid #475569 !important;
+      box-shadow: 0 3px 0 #0f172a, 0 6px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    }
+    .btn-3d-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 #cbd5e1, 0 10px 20px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    }
+    .dark .btn-3d-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 #0f172a, 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    }
+    .btn-3d-secondary:active {
+      transform: translateY(2px) !important;
+      box-shadow: 0 1px 0 #cbd5e1, 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+    }
+    .dark .btn-3d-secondary:active {
+      transform: translateY(2px) !important;
+      box-shadow: 0 1px 0 #0f172a, 0 2px 5px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* 3D Danger Button (Delete / Reset) */
+    .btn-3d-danger {
+      background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid #f43f5e !important;
+      box-shadow: 0 3px 0 #9f1239, 0 6px 14px rgba(225, 29, 72, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    }
+    .btn-3d-danger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 #9f1239, 0 10px 20px rgba(225, 29, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+    }
+    .btn-3d-danger:active {
+      transform: translateY(2px) !important;
+      box-shadow: 0 1px 0 #9f1239, 0 2px 4px rgba(225, 29, 72, 0.3) !important;
+    }
+
+    /* 3D Icon Button (Theme Toggle, Notifications, Ping) */
+    .btn-3d-icon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.2s ease,
+                  color 0.2s ease;
+      box-shadow: 0 3px 0 rgba(203, 213, 225, 0.85), 0 4px 10px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+    .dark .btn-3d-icon {
+      box-shadow: 0 3px 0 rgba(15, 23, 42, 0.9), 0 4px 10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .btn-3d-icon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 rgba(203, 213, 225, 0.9), 0 8px 14px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+    .dark .btn-3d-icon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 rgba(15, 23, 42, 1), 0 8px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+    .btn-3d-icon:active {
+      transform: translateY(2px) !important;
+      box-shadow: 0 1px 0 rgba(203, 213, 225, 0.85);
+    }
+    .dark .btn-3d-icon:active {
+      transform: translateY(2px) !important;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.9);
+    }
+
+    /* Universal Smooth Transitions Across All Interactive UI Elements */
+    a, button, input, select, textarea, tr, .liquid-card {
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Interactive Row Hover Slide */
+    tbody tr {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease;
+    }
+    tbody tr:hover {
+      transform: translateX(3px);
+    }
+
+    /* Search Input Focus Glow & Scale */
+    #searchInput:focus {
+      transform: scale(1.008);
+      box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.2), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+    }
+
+    /* Folder Cards 3D Hover */
+    #foldersContainer > div {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #foldersContainer > div:hover {
+      transform: translateY(-5px) scale(1.015);
+      box-shadow: 0 16px 32px -8px rgba(59, 130, 246, 0.2);
     }
 
     /* Shimmer button reflection */
     .liquid-btn {
       position: relative;
       overflow: hidden;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .liquid-btn::before {
       content: '';
@@ -139,12 +304,12 @@
 
     /* Modal Animation */
     .modal-active {
-      animation: modalSpring 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: modalSpring 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes modalSpring {
       from {
         opacity: 0;
-        transform: scale(0.92) translateY(16px);
+        transform: scale(0.88) translateY(20px);
       }
       to {
         opacity: 1;
@@ -154,6 +319,9 @@
   </style>
 </head>
 <body class="min-h-screen bg-[#f4f7fb] dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col md:flex-row transition-colors duration-300 relative">
+
+  <!-- Interactive Mouse Glowing Spotlight Follower -->
+  <div id="mouseGlowLight" class="mouse-glow"></div>
 
   <!-- Floating Liquid Ambient Orbs -->
   <div class="orb w-96 h-96 bg-blue-400 top-10 left-10"></div>
@@ -317,7 +485,7 @@
       <div class="flex items-center space-x-3 shrink-0">
         
         <!-- Liquid Dark/Light Mode Switcher -->
-        <button onclick="toggleTheme()" class="w-10 h-10 rounded-2xl liquid-card flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 active:scale-90" title="Toggle Mode">
+        <button onclick="toggleTheme()" class="btn-3d btn-3d-icon w-10 h-10 rounded-2xl liquid-card text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400" title="Toggle Mode">
           <svg id="sunIcon" class="w-4 h-4 hidden transform rotate-0 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
@@ -327,14 +495,14 @@
         </button>
 
         <!-- Notification Bell -->
-        <button onclick="showToast('Notification center: All 9 storage nodes active')" class="w-10 h-10 rounded-2xl liquid-card flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 transition active:scale-90">
+        <button onclick="showToast('Notification center: All 9 storage nodes active')" class="btn-3d btn-3d-icon w-10 h-10 rounded-2xl liquid-card text-slate-600 dark:text-slate-300 hover:text-blue-600">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
         </button>
 
         <!-- Invite Members Button -->
-        <button onclick="openInviteModal()" class="px-4 py-2.5 rounded-2xl liquid-card hover:border-blue-400 text-slate-800 dark:text-slate-100 text-xs font-bold transition-all flex items-center space-x-2 active:scale-95">
+        <button onclick="openInviteModal()" class="btn-3d btn-3d-secondary px-4 py-2.5 rounded-2xl text-slate-800 dark:text-slate-100 text-xs font-bold flex items-center space-x-2">
           <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
@@ -358,21 +526,21 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-2.5">
-            <button onclick="toggleAutoRefresh(this)" class="px-3.5 py-2 rounded-2xl liquid-card text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center space-x-1.5 transition active:scale-95">
+            <button onclick="toggleAutoRefresh(this)" class="btn-3d btn-3d-secondary px-3.5 py-2 rounded-2xl text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span id="autoRefreshLabel">Auto-refresh Off</span>
             </button>
 
-            <button onclick="refreshQuota()" class="px-3.5 py-2 rounded-2xl liquid-card text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center space-x-1.5 transition active:scale-95">
+            <button onclick="refreshQuota()" class="btn-3d btn-3d-secondary px-3.5 py-2 rounded-2xl text-slate-700 dark:text-slate-200 text-xs font-semibold flex items-center space-x-1.5">
               <svg id="refreshSpinner" class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               <span>Refresh</span>
             </button>
 
-            <button onclick="openConnectModal()" class="liquid-btn px-4 py-2 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-xs font-bold shadow-lg shadow-blue-500/25 flex items-center space-x-1.5 transition active:scale-95">
+            <button onclick="openConnectModal()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-2xl text-white text-xs font-bold flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
@@ -403,16 +571,16 @@
 
         <!-- Filter Tabs -->
         <div class="flex items-center space-x-2 text-xs font-semibold">
-          <button class="px-3.5 py-2 rounded-2xl liquid-card text-slate-700 dark:text-slate-200 flex items-center space-x-1.5 hover:border-blue-400">
+          <button class="btn-3d btn-3d-secondary px-3.5 py-2 rounded-2xl text-slate-700 dark:text-slate-200 flex items-center space-x-1.5">
             <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
             </svg>
             <span>All Providers</span>
           </button>
-          <button class="px-3.5 py-2 rounded-2xl liquid-card text-slate-700 dark:text-slate-200 hover:border-blue-400">
+          <button class="btn-3d btn-3d-secondary px-3.5 py-2 rounded-2xl text-slate-700 dark:text-slate-200">
             All Accounts
           </button>
-          <button class="px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border border-blue-400/50 shadow-sm flex items-center space-x-1.5">
+          <button class="btn-3d btn-3d-secondary px-3.5 py-2 rounded-2xl bg-white/95 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border-blue-400/50 shadow-sm flex items-center space-x-1.5">
             <svg class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -442,13 +610,13 @@
           
           <div class="flex items-center space-x-2.5">
             <input type="file" id="actualUploadInput" class="hidden" multiple onchange="handleFileUpload(event)">
-            <button onclick="document.getElementById('actualUploadInput').click()" class="px-3.5 py-2 rounded-2xl liquid-card text-slate-800 dark:text-slate-100 text-xs font-bold flex items-center space-x-1.5 active:scale-95">
+            <button onclick="document.getElementById('actualUploadInput').click()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-2xl text-white text-xs font-bold flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
               </svg>
               <span>Upload</span>
             </button>
-            <button onclick="openNewFolderModal()" class="px-3.5 py-2 rounded-2xl liquid-card text-slate-800 dark:text-slate-100 text-xs font-bold flex items-center space-x-1.5 active:scale-95">
+            <button onclick="openNewFolderModal()" class="btn-3d btn-3d-secondary px-4 py-2 rounded-2xl text-slate-800 dark:text-slate-100 text-xs font-bold flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
@@ -525,13 +693,13 @@
         <!-- Filter Sub-nav -->
         <div class="flex items-center justify-between pt-2">
           <div class="flex items-center space-x-2 text-xs font-semibold">
-            <button class="px-3.5 py-1.5 rounded-2xl bg-white/95 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border border-slate-200 dark:border-slate-700 shadow-sm flex items-center space-x-1.5">
+            <button class="btn-3d btn-3d-secondary px-3.5 py-1.5 rounded-2xl bg-white/95 dark:bg-slate-800 text-slate-950 dark:text-white font-bold border-slate-200 dark:border-slate-700 shadow-sm flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>Recents</span>
             </button>
-            <button onclick="switchTab('starred')" class="px-3.5 py-1.5 rounded-2xl liquid-card text-slate-600 dark:text-slate-300 flex items-center space-x-1.5 hover:border-blue-400">
+            <button onclick="switchTab('starred')" class="btn-3d btn-3d-secondary px-3.5 py-1.5 rounded-2xl text-slate-600 dark:text-slate-300 flex items-center space-x-1.5">
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
@@ -607,7 +775,7 @@
                   <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">Jun 2, 2026</td>
                   <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">4.12 MB</td>
                   <td class="px-4 py-3 text-right">
-                    <button onclick="triggerDownload('Q3 Financial Forecast Master.xlsx')" class="text-blue-600 hover:underline font-semibold">Download</button>
+                    <button onclick="triggerDownload('Q3 Financial Forecast Master.xlsx')" class="btn-3d btn-3d-secondary px-3 py-1 rounded-xl text-xs font-bold text-blue-600">Download</button>
                   </td>
                 </tr>
                 <tr class="hover:bg-white/40 dark:hover:bg-slate-800/50 transition">
@@ -621,7 +789,7 @@
                   <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">May 29, 2026</td>
                   <td class="px-4 py-3 text-slate-400 font-mono text-[11px]">18.45 MB</td>
                   <td class="px-4 py-3 text-right">
-                    <button onclick="triggerDownload('Product Launch Keynote Presentation.pdf')" class="text-blue-600 hover:underline font-semibold">Download</button>
+                    <button onclick="triggerDownload('Product Launch Keynote Presentation.pdf')" class="btn-3d btn-3d-secondary px-3 py-1 rounded-xl text-xs font-bold text-blue-600">Download</button>
                   </td>
                 </tr>
               </tbody>
@@ -685,7 +853,7 @@
                   <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">Color Palette</p>
                   <p id="themeStatusText" class="text-[11px] text-slate-500">Currently using Light Mode</p>
                 </div>
-                <button onclick="toggleTheme()" class="liquid-btn px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold shadow-md shadow-blue-500/20 active:scale-95">
+                <button onclick="toggleTheme()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-white text-xs font-bold shadow-md shadow-blue-500/20">
                   Toggle Mode
                 </button>
               </div>
@@ -748,14 +916,14 @@
 
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-200/50 dark:border-slate-800">
               <div class="flex items-center space-x-2">
-                <button onclick="testLocalBackend()" class="liquid-btn px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition shadow-sm active:scale-95">
+                <button onclick="testLocalBackend()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-white text-xs font-bold shadow-sm">
                   Test Gateway Connection
                 </button>
-                <button onclick="exportDataJSON()" class="px-4 py-2 rounded-xl liquid-card text-slate-800 dark:text-slate-200 text-xs font-semibold hover:border-blue-400 transition active:scale-95">
+                <button onclick="exportDataJSON()" class="btn-3d btn-3d-secondary px-4 py-2 rounded-xl text-slate-800 dark:text-slate-200 text-xs font-semibold">
                   Export Catalog (JSON)
                 </button>
               </div>
-              <button onclick="resetDefaultData()" class="text-xs text-rose-500 hover:text-rose-600 font-semibold transition">
+              <button onclick="resetDefaultData()" class="btn-3d btn-3d-danger px-3 py-1.5 rounded-xl text-xs font-bold">
                 Reset Catalog to Factory State
               </button>
             </div>
@@ -799,8 +967,8 @@
       </div>
 
       <div class="pt-2 flex justify-end space-x-2">
-        <button onclick="closeConnectModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">Cancel</button>
-        <button onclick="confirmConnectDrive()" class="liquid-btn px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 active:scale-95">Link Google Account</button>
+        <button onclick="closeConnectModal()" class="btn-3d btn-3d-secondary px-4 py-2 rounded-xl text-xs font-semibold">Cancel</button>
+        <button onclick="confirmConnectDrive()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-xs font-bold">Link Google Account</button>
       </div>
     </div>
   </div>
@@ -817,8 +985,8 @@
       <p class="text-xs text-slate-500 dark:text-slate-400">Share your 9 in 1 Cloud pooled storage folders with collaborators securely.</p>
       <input type="email" id="inviteEmailInput" placeholder="colleague@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-500">
       <div class="flex justify-end space-x-2">
-        <button onclick="closeInviteModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400">Cancel</button>
-        <button onclick="sendInvite()" class="liquid-btn px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 active:scale-95">Send Invitation</button>
+        <button onclick="closeInviteModal()" class="btn-3d btn-3d-secondary px-4 py-2 rounded-xl text-xs font-semibold">Cancel</button>
+        <button onclick="sendInvite()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-xs font-bold">Send Invitation</button>
       </div>
     </div>
   </div>
@@ -835,8 +1003,8 @@
       <p class="text-xs text-slate-500 dark:text-slate-400">Virtual folders organize files in your unified catalog regardless of physical storage drive.</p>
       <input type="text" id="newFolderName" placeholder="Folder name..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:border-blue-500">
       <div class="flex justify-end space-x-2">
-        <button onclick="closeNewFolderModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400">Cancel</button>
-        <button onclick="createFolder()" class="liquid-btn px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 active:scale-95">Create Folder</button>
+        <button onclick="closeNewFolderModal()" class="btn-3d btn-3d-secondary px-4 py-2 rounded-xl text-xs font-semibold">Cancel</button>
+        <button onclick="createFolder()" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-xs font-bold">Create Folder</button>
       </div>
     </div>
   </div>
@@ -864,8 +1032,8 @@
       </div>
 
       <div class="flex justify-end space-x-2 pt-2">
-        <button id="previewDeleteBtn" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition">Delete</button>
-        <button id="previewDownloadBtn" class="liquid-btn px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 active:scale-95">Download Stream</button>
+        <button id="previewDeleteBtn" class="btn-3d btn-3d-danger px-3.5 py-2 rounded-xl text-xs font-bold">Delete</button>
+        <button id="previewDownloadBtn" class="btn-3d btn-3d-primary liquid-btn px-4 py-2 rounded-xl text-xs font-bold">Download Stream</button>
       </div>
     </div>
   </div>
@@ -1040,7 +1208,7 @@
                 <p class="text-[11px] text-slate-400 dark:text-slate-500 font-mono">${acc.email}</p>
               </div>
             </div>
-            <button onclick="pingSingleCard(this)" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition active:scale-90">
+            <button onclick="pingSingleCard(this)" class="btn-3d btn-3d-icon p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl" title="Ping Account">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
@@ -1421,6 +1589,30 @@
       const checkboxes = document.querySelectorAll('#filesTableBody input[type="checkbox"]');
       checkboxes.forEach(c => c.checked = cb.checked);
     }
+
+    
+    // ==================== INTERACTIVE MOUSE GLOW LIGHT FOLLOWER ====================
+    let mouseTargetX = window.innerWidth / 2;
+    let mouseTargetY = window.innerHeight / 2;
+    let mouseCurrentX = mouseTargetX;
+    let mouseCurrentY = mouseTargetY;
+    const glowElem = document.getElementById('mouseGlowLight');
+
+    window.addEventListener('mousemove', (e) => {
+      mouseTargetX = e.clientX;
+      mouseTargetY = e.clientY;
+    });
+
+    function stepMouseGlow() {
+      mouseCurrentX += (mouseTargetX - mouseCurrentX) * 0.12;
+      mouseCurrentY += (mouseTargetY - mouseCurrentY) * 0.12;
+      if (glowElem) {
+        glowElem.style.left = mouseCurrentX + 'px';
+        glowElem.style.top = mouseCurrentY + 'px';
+      }
+      requestAnimationFrame(stepMouseGlow);
+    }
+    requestAnimationFrame(stepMouseGlow);
 
     // ==================== MOUNT ====================
     window.addEventListener('DOMContentLoaded', () => {
