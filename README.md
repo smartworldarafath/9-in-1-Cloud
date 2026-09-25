@@ -26,7 +26,7 @@
 
 <br/>
 
-<img src="https://i.ibb.co.com/35BySv1C/image.png" alt="9-in-1 Cloud Banner" width="100%" style="border-radius: 12px;" />
+<img src="assets/banner-9in1-cloud.jpg" alt="9-in-1 Cloud Banner — 9 Google Drive accounts (15GB each) pooled into a TOTAL 135GB unified cloud" width="100%" style="border-radius: 12px;" />
 
 </div>
 
@@ -191,6 +191,7 @@ let targetAccount = priorityList.find(acc => (acc.totalBytes - acc.usedBytes) >=
 ├── .github/
 │   └── workflows/
 │       └── pages.yml                 # Automated GitHub Pages deployment pipeline
+├── assets/                           # README banner image and support/payment QR codes
 ├── backend/                          # Express 5 REST API & Cloud Gateway
 │   ├── prisma/
 │   │   ├── schema.prisma             # Full relational database schema definition
