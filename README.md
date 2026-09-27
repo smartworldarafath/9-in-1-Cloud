@@ -444,8 +444,6 @@ Copyright © 2026 **Arafath**. All rights reserved.
 
 ---
 
-## ☕ Support / Buy Me a Coffee & Become a Sponsor
-
 <div align="center">
 
 <a href="SUPPORT.md" target="_blank">
