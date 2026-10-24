@@ -1,406 +1,292 @@
 <div align="center">
 
-# ⚡ 9-in-1 Cloud Storage Gateway
+<img src="assets/banner-9in1-cloud.jpg" alt="9-in-1 Cloud — Unified Multi-Cloud Storage Pooling & Intelligent Stream Gateway" width="100%" style="border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
 
-**The Unified Multi-Cloud Storage Pooling & Intelligent Stream Gateway**
+<br><br>
 
-*Aggregate up to 9 Google Drive & S3 cloud accounts into one seamless, high-performance virtual storage pool with zero server disk buffering.*
+<p align="center">
+  <a href="https://smartworldarafath.github.io/9-in-1-Cloud/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-launch.svg"><img src="assets/readme/light/btn-launch.svg" alt="Launch 9-in-1 Cloud Web App" height="50"></picture></a>
+  <a href="https://github.com/smartworldarafath/9-in-1-Cloud"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-github.svg"><img src="assets/readme/light/btn-github.svg" alt="9-in-1 Cloud Source Code" height="50"></picture></a>
+  <a href="#support"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-support.svg"><img src="assets/readme/light/btn-support.svg" alt="Support Project" height="50"></picture></a>
+  <a href="#quickstart"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-docker.svg"><img src="assets/readme/light/btn-docker.svg" alt="Docker Deployment" height="50"></picture></a>
+</p>
 
-<br/>
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-brightgreen?style=for-the-badge&logo=githubpages&logoColor=white)](https://smartworldarafath.github.io/9-in-1-Cloud/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue?style=for-the-badge)](LICENSE)
-
-<br/>
-
-[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/smartworldarafath/9-in-1-Cloud/pulls)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-success?style=flat-square)](https://github.com/smartworldarafath/9-in-1-Cloud)
-
-<br/>
-
-[🚀 **Explore Live Interactive Demo**](https://smartworldarafath.github.io/9-in-1-Cloud/) • [📖 **Architecture Deep-Dive**](#-system-architecture--how-it-works) • [🛠️ **Setup Guide**](#-quick-start--installation) • [📡 **API Documentation**](#-api-upload-reference) • [☕ **Support**](#-support--buy-me-a-coffee)
-
-<br/>
-
-<img src="assets/banner-9in1-cloud.jpg" alt="9-in-1 Cloud Banner — 9 Google Drive accounts (15GB each) pooled into a TOTAL 135GB unified cloud" width="100%" style="border-radius: 12px;" />
+<p align="center">
+  <a href="#overview" title="135 GB+ Virtual Storage Pool"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-pooling.svg"><img src="assets/readme/light/badge-pooling.svg" alt="135 GB+ Virtual Pool" height="28"></picture></a>
+  <a href="#architecture" title="Zero Server Disk Buffering"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-zerodisk.svg"><img src="assets/readme/light/badge-zerodisk.svg" alt="Zero Disk Buffering" height="28"></picture></a>
+  <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" title="Node.js 20+ LTS Runtime"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-nodejs.svg"><img src="assets/readme/light/badge-nodejs.svg" alt="Node.js 20+ LTS" height="28"></picture></a>
+  <a href="https://expressjs.com" target="_blank" rel="noopener noreferrer" title="Express 5 Gateway"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-express.svg"><img src="assets/readme/light/badge-express.svg" alt="Express 5" height="28"></picture></a>
+  <a href="https://react.dev" target="_blank" rel="noopener noreferrer" title="React 19 Frontend Dashboard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-react.svg"><img src="assets/readme/light/badge-react.svg" alt="React 19" height="28"></picture></a>
+  <a href="#features" title="9x Google Drive Accounts (15GB each)"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-gdrive.svg"><img src="assets/readme/light/badge-gdrive.svg" alt="9x Google Drive" height="28"></picture></a>
+  <a href="#features" title="S3 & Cloudflare R2 Compatible"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-s3.svg"><img src="assets/readme/light/badge-s3.svg" alt="S3 Compatible" height="28"></picture></a>
+  <a href="#quickstart" title="Docker Container Ready"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-docker.svg"><img src="assets/readme/light/badge-docker.svg" alt="Docker Ready" height="28"></picture></a>
+  <a href="LICENSE" title="Apache 2.0 Open Source License"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-license.svg"><img src="assets/readme/light/badge-license.svg" alt="Apache 2.0" height="28"></picture></a>
+  <a href="https://github.com/smartworldarafath/9-in-1-Cloud/pulls" title="Pull Requests Welcome!"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/badge-prs.svg"><img src="assets/readme/light/badge-prs.svg" alt="PRs Welcome" height="28"></picture></a>
+</p>
 
 </div>
 
----
+<h3 id="overview"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-overview.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-overview.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-overview.svg"><img src="assets/readme/light/h-overview.svg" alt="Executive Overview: Storage Pooling & Zero-Buffering Architecture" width="100%"></picture></h3>
 
-## 🌐 Live Interactive Demo
+**9-in-1 Cloud** is a specialized, open-source **reverse-proxy storage gateway and virtualization layer** built for developers, homelab operators, and power users. It connects and aggregates up to **9 Google Drive accounts** (15 GB each = 135.00 GB free) plus enterprise S3 buckets (Cloudflare R2, MinIO, Wasabi, or AWS S3) into a single unified virtual storage pool with zero server disk buffering.
 
-Experience how 9 cloud accounts connect and merge into a single storage pool in real-time directly in your web browser:
+### ⚡ The Problem Solved
+Managing multiple cloud accounts usually requires juggling browser profiles, switching accounts, and dealing with storage imbalances where one drive sits empty while another overflows. Typical VPS gateway solutions write entire files onto the host disk before uploading to cloud storage, risking disk exhaustion, slow I/O bottlenecks, and VPS failure.
 
-👉 **[Launch 9-in-1 Cloud Interactive Demo](https://smartworldarafath.github.io/9-in-1-Cloud/)**
+### 🚀 The 9-in-1 Cloud Solution
+1. **135 GB+ Free Unified Pool**: Immediately unites 9 free Google Drive accounts into a single massive 135 GB virtual storage pool.
+2. **Zero-Buffering Direct Stream**: Files pipe directly from the client socket through Node.js stream buffers into Google Drive API v3 without writing a single byte to the VPS server hard drive.
+3. **Dynamic Load Balancing**: Real-time quota detection automatically routes incoming files to the account with the most remaining space.
+4. **Relational Virtual Directory**: A single unified MySQL or SQLite virtual file system hierarchy gives you complete folder trees, tags, search, and instant shareable streaming links.
 
-*Features of the live demo:*
-- **Real-Time Storage Pooling**: Experience 9 Google Drive accounts combined into a single virtual pool.
-- **Quota Tracker**: Inspect live space utilization meters and per-drive quotas.
-- **Virtual File Manager**: Test file browsing, folder navigation, search filtering, and preview modals.
-- **Functional Settings**: Smooth dark/light mode toggle and local self-host gateway connection tester.
+<div align="center">
+  <a href="https://smartworldarafath.github.io/9-in-1-Cloud/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-launch.svg"><img src="assets/readme/light/btn-launch.svg" alt="Launch 9-in-1 Cloud Live Demo" height="50"></picture></a>
+  <a href="https://github.com/smartworldarafath/9-in-1-Cloud/pulls"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-contribute.svg"><img src="assets/readme/light/btn-contribute.svg" alt="Contribute" height="50"></picture></a>
+  <a href="LICENSE"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/btn-license.svg"><img src="assets/readme/light/btn-license.svg" alt="Apache 2.0 License" height="50"></picture></a>
+</div>
 
----
+<h3 id="features"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-features.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-features.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-features.svg"><img src="assets/readme/light/h-features.svg" alt="Core Capabilities: Bento Grid Architecture & Intelligent Dispatcher" width="100%"></picture></h3>
 
-## 📌 Executive Overview & Core Problem Solved
+<div align="center">
 
-### The Cloud Storage Fragmentation Problem
-Most individual users, developers, and small teams own multiple Google accounts (e.g., personal, work, client, university, backup accounts). Each free Google account offers **15 GB** of free cloud storage, but managing them is painful:
-- You must constantly switch browser profiles and logins.
-- Large files cannot span across accounts.
-- One account quickly runs out of space while another account sits virtually empty.
-- Traditional VPS gateway software downloads files onto the host server disk before uploading to cloud storage, risking disk exhaustion, slow transfer rates, and disk I/O bottlenecks.
+| | |
+|:---:|:---:|
+| <a href="#pooling" title="135GB+ Multi-Cloud Pooling"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-pooling.svg"><img src="assets/readme/light/card-pooling.svg" alt="135GB+ Multi-Cloud Pooling" width="430"></picture></a> | <a href="#streaming" title="Zero-Disk Direct Stream"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-stream.svg"><img src="assets/readme/light/card-stream.svg" alt="Zero-Disk Direct Stream" width="430"></picture></a> |
+| <a href="#balancer" title="Intelligent Load Balancer"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-balancer.svg"><img src="assets/readme/light/card-balancer.svg" alt="Intelligent Load Balancer" width="430"></picture></a> | <a href="#vfs" title="Unified Virtual Directory"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-vfs.svg"><img src="assets/readme/light/card-vfs.svg" alt="Unified Virtual Directory" width="430"></picture></a> |
+| <a href="#s3" title="S3 & Cloudflare R2 Tiering"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-s3.svg"><img src="assets/readme/light/card-s3.svg" alt="S3 & Cloudflare R2 Tiering" width="430"></picture></a> | <a href="#security" title="Enterprise Encryption & Auth"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-security.svg"><img src="assets/readme/light/card-security.svg" alt="Enterprise Encryption & Auth" width="430"></picture></a> |
+| <a href="#ui" title="Material 3 Expressive UI"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-ui.svg"><img src="assets/readme/light/card-ui.svg" alt="Material 3 Expressive UI" width="430"></picture></a> | <a href="#docker" title="100% Self-Hosted & Docker"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/card-docker.svg"><img src="assets/readme/light/card-docker.svg" alt="100% Self-Hosted & Docker" width="430"></picture></a> |
 
-### The 9-in-1 Cloud Solution
-**9-in-1 Cloud** is a specialized, open-source **reverse-proxy storage gateway and virtualization layer**. It connects up to **9 Google Drive accounts** (and optional enterprise S3 buckets like Cloudflare R2, MinIO, Wasabi, or AWS) into a single, unified virtual drive:
-1. **135 GB+ Pooled Storage**: Connect 9 free Google Drive accounts (15 GB each) to immediately yield **135.00 GB** of zero-cost cloud storage.
-2. **Direct Memory Stream Pipeline**: File uploads and downloads stream straight through memory chunks without ever storing or caching physical files on the host server disk.
-3. **Dynamic Load Balancing**: The gateway evaluates the remaining space on each connected drive in real time and automatically dispatches incoming files to the emptiest account.
-4. **Single MySQL Virtual Directory**: Users see one clean, unified directory hierarchy with virtual folders, search, tags, and shareable links regardless of which physical Google Drive account holds the file.
+</div>
 
----
-
-## 🏗️ System Architecture & How It Works
+<h3 id="architecture"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-architecture.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-architecture.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-architecture.svg"><img src="assets/readme/light/h-architecture.svg" alt="System Architecture: Streaming Pipeline & High-Performance Routing" width="100%"></picture></h3>
 
 ```mermaid
 flowchart TD
     subgraph Clients["Clients & Ingestion Sources"]
-        UI["Web Dashboard (React 19 + Tailwind)"]
-        CLI["CLI Scripts / cURL"]
+        UI["Web Dashboard (React 19 + Material 3)"]
+        CLI["CLI Scripts / cURL Direct Stream"]
         APP["Third-Party Software (API Key Auth)"]
     end
 
-    subgraph GatewayCore["9-in-1 Cloud Gateway Server (Node.js + Express 5)"]
-        AUTH["Authentication Layer\n(JWT Bearer / Argon2 / SHA-256 API Keys)"]
-        DISPATCHER["Intelligent Upload Dispatcher\n(Most-Available / Round-Robin / Priority)"]
-        BUSBOY["Busboy Multipart Streaming Pipeline\n(Direct Chunk-by-Chunk Memory Stream)"]
-        SYNC["Google Drive Bidirectional Sync Engine"]
+    subgraph GatewayCore["9-in-1 Cloud Gateway Server (Node.js 20+ Express 5)"]
+        AUTH["Authentication & Token Guard\n(JWT Bearer / Argon2 / SHA-256 API Keys)"]
+        DISPATCH["Intelligent Dispatcher & Load Balancer\n(Space-Aware / Round-Robin / Priority)"]
+        STREAM["Direct Memory Stream Engine (Busboy)\nZero Bytes Written to Host Hard Drive"]
+        VFS["Virtual File System Schema\n(Folder Hierarchy, Tags, Quota Stats)"]
     end
 
-    subgraph Database["Relational Metadata Store (MySQL + Prisma ORM)"]
-        SCHEMA[("MySQL Database\n- Virtual Folder Hierarchy\n- File Pointers & Hashes\n- Encrypted OAuth Tokens (AES-256-GCM)\n- Audit Logs & Share Tokens")]
+    subgraph StorageCloud["Distributed Multi-Cloud Storage Matrix"]
+        GD1["Google Drive #1 (15 GB)"]
+        GD2["Google Drive #2 (15 GB)"]
+        GD3["Google Drive #3 (15 GB)"]
+        GD4["Google Drive #4 (15 GB)"]
+        GD5["Google Drive #5 (15 GB)"]
+        GD6["Google Drive #6 (15 GB)"]
+        GD7["Google Drive #7 (15 GB)"]
+        GD8["Google Drive #8 (15 GB)"]
+        GD9["Google Drive #9 (15 GB)"]
+        S3B["Enterprise S3 (Cloudflare R2 / MinIO / AWS)"]
     end
 
-    subgraph StorageMatrix["Unified 9-in-1 Storage Matrix"]
-        GD1["Google Drive Node #1 (Primary)"]
-        GD2["Google Drive Node #2"]
-        GD3["Google Drive Node #3"]
-        GD4["Google Drive Node #4"]
-        GD5["Google Drive Node #5"]
-        GD6["Google Drive Node #6"]
-        GD7["Google Drive Node #7"]
-        GD8["Google Drive Node #8"]
-        S3["S3 Storage (Cloudflare R2 / MinIO / Wasabi / AWS)"]
+    subgraph Database["Metadata Persistence"]
+        DB[(MySQL / SQLite Database)]
     end
 
-    Clients --> AUTH
-    AUTH --> DISPATCHER
-    DISPATCHER --> BUSBOY
-    BUSBOY --> GD1
-    BUSBOY --> GD2
-    BUSBOY --> GD3
-    BUSBOY --> GD4
-    BUSBOY --> GD5
-    BUSBOY --> GD6
-    BUSBOY --> GD7
-    BUSBOY --> GD8
-    BUSBOY --> S3
-    BUSBOY -. Writes Metadata Pointer .-> SCHEMA
-    SYNC <--> StorageMatrix
-    SYNC <--> SCHEMA
+    UI --> AUTH
+    CLI --> AUTH
+    APP --> AUTH
+
+    AUTH --> DISPATCH
+    DISPATCH --> STREAM
+    STREAM --> VFS
+    VFS <--> DB
+
+    STREAM -- Direct In-Memory Stream Chunking --> GD1
+    STREAM -- Direct In-Memory Stream Chunking --> GD2
+    STREAM -- Direct In-Memory Stream Chunking --> GD3
+    STREAM -- Direct In-Memory Stream Chunking --> GD4
+    STREAM -- Direct In-Memory Stream Chunking --> GD5
+    STREAM -- Direct In-Memory Stream Chunking --> GD6
+    STREAM -- Direct In-Memory Stream Chunking --> GD7
+    STREAM -- Direct In-Memory Stream Chunking --> GD8
+    STREAM -- Direct In-Memory Stream Chunking --> GD9
+    STREAM -- S3 Multipart Upload --> S3B
 ```
 
-### The Zero-Disk Streaming Mechanics
-When a user uploads a 2 GB video file:
-1. The client sends a `POST /files/upload` multipart stream.
-2. Express pipes the request body into `Busboy` on the fly.
-3. The **Intelligent Dispatcher** inspects the database to find the connected Google Drive account with the highest free quota.
-4. An active OAuth2 client is retrieved (refreshing access tokens automatically if expired).
-5. The incoming file chunk stream is piped directly into the Google Drive API v3 `drive.files.create({ media: { body: fileStream } })`.
-6. **Zero bytes of the uploaded file are saved to the server's local hard drive.** The file streams straight from the client's socket into Google's cloud servers.
-7. Once Google returns the remote file ID and size, a corresponding record is written to MySQL, mapping the virtual folder path to the remote physical file.
+#### 🌊 The Stream Pipeline Lifecycle:
+1. Client issues a `POST /files/upload` multipart stream.
+2. Express pipes request chunks into `Busboy` on the fly.
+3. The **Intelligent Dispatcher** queries remaining capacities across all 9 connected accounts.
+4. An active OAuth2 client is retrieved (refreshing access tokens automatically if near expiration).
+5. File chunks pipe directly into Google Drive API v3 `drive.files.create({ media: { body: fileStream } })`.
+6. **Zero bytes of the uploaded file are saved to the server's local hard drive.** The file streams straight from the client socket into Google's cloud servers.
+7. Upon completion, Google returns the remote file ID and size, which is recorded in the MySQL VFS metadata layer.
 
----
-
-## 🎯 Upload Routing Algorithms Explained
-
-9-in-1 Cloud offers three selectable routing strategies configured in settings:
-
-### 1. Most-Available Space (Default & Recommended)
-```typescript
-// Algorithm: Find account where (totalBytes - usedBytes) is maximized
-let targetAccount = connectedAccounts.reduce((best, curr) => {
-  const currAvailable = BigInt(curr.totalBytes) - BigInt(curr.usedBytes);
-  const bestAvailable = BigInt(best.totalBytes) - BigInt(best.usedBytes);
-  return currAvailable > bestAvailable ? curr : best;
-});
-```
-- **Behavior**: Ensures balanced distribution across all 9 accounts. If one drive gets heavy use, incoming uploads seamlessly divert to the emptier accounts.
-
-### 2. Round-Robin
-```typescript
-// Algorithm: Atomic modulo counter across connected accounts
-const index = currentCursor % connectedAccounts.length;
-const targetAccount = connectedAccounts[index];
-currentCursor++;
-```
-- **Behavior**: Cycles sequentially from Account #1 to #9. Best for scenarios where files have similar sizes and you want an even count of files per account.
-
-### 3. Priority Order
-```typescript
-// Algorithm: Fills account #1 until remaining space < incoming file size
-let targetAccount = priorityList.find(acc => (acc.totalBytes - acc.usedBytes) >= incomingFileSize);
-```
-- **Behavior**: Fills your primary Drive first until it reaches 95% capacity, then overflows to Drive #2, then #3, etc.
-
----
-
-## ✨ Core Capabilities & Features
-
-| Capability | Technical Implementation | Benefit |
-| :--- | :--- | :--- |
-| **9-in-1 Storage Matrix** | Multi-account OAuth2 token lifecycle management | Connect up to 9 Google Drive accounts + S3 endpoints into one 135 GB+ pool. |
-| **Zero Server Disk Caching** | Node.js Stream pipeline & Busboy stream parsing | Upload gigabyte-sized files without exhausting VPS disk space or RAM. |
-| **S3 Storage Support** | AWS SDK v3 Client-S3 with custom endpoints | Connect MinIO, Cloudflare R2, Wasabi, Backblaze B2, or AWS S3 as overflow nodes. |
-| **Virtual Folder Hierarchy** | Recursive MySQL schema with parent-child IDs | Create deeply nested folders without creating messy folder structures on Google Drive. |
-| **Bidirectional Sync** | `POST /files/sync-google` differential comparator | Files manually placed in Google Drive's `9drive` folder are auto-indexed into MySQL. |
-| **API Key System** | SHA-256 hashed keys, one-time secret display | Upload files headlessly from CI/CD pipelines, bash scripts, and backend microservices. |
-| **Enterprise Security** | AES-256-GCM encrypted OAuth tokens, Argon2 password hashing | Stored credentials cannot be decrypted even if the database file is accessed. |
-| **In-App Media Player** | Stream range requests (`bytes=0-`) via Plyr.js | Watch high-definition videos and preview images directly from your virtual storage. |
-| **Automated Updates** | Native PM2 updater in Settings UI | Trigger zero-downtime updates directly from the dashboard via `update.sh`. |
-
----
-
-## 📸 Screenshots & UI Preview
+<h3 id="screenshots"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-screenshots.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-screenshots.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-screenshots.svg"><img src="assets/readme/light/h-screenshots.svg" alt="Interface & Dashboard: Google Drive Material 3 Expressive Aesthetics" width="100%"></picture></h3>
 
 <div align="center">
-  <img src="https://i.ibb.co.com/HLjG3JRf/image.png" alt="9-in-1 Cloud Quota Tracker" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" />
-  <img src="https://i.ibb.co.com/QLpYGmx/image.png" alt="9-in-1 Cloud All Files Explorer" width="48%" style="border-radius: 8px; margin: 1%; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" />
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <img src="https://i.ibb.co.com/HLjG3JRf/image.png" alt="9-in-1 Cloud Quota Tracker" width="100%" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" /><br><br>
+      <b>📊 Real-Time Quota Tracker & Space Matrix</b><br>
+      <sub>Track combined 135 GB storage meters, individual drive capacities, and real-time distribution stats.</sub>
+    </td>
+    <td width="50%" align="center" valign="top">
+      <img src="https://i.ibb.co.com/QLpYGmx/image.png" alt="9-in-1 Cloud All Files Explorer" width="100%" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" /><br><br>
+      <b>🗂️ Virtual File System & 4K Media Showcase</b><br>
+      <sub>Browse unified folders, search across accounts, stream 4K videos, and preview wallpapers with Liquid Glass.</sub>
+    </td>
+  </tr>
+</table>
+
 </div>
 
----
+<h3 id="stack"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-stack.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-stack.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-stack.svg"><img src="assets/readme/light/h-stack.svg" alt="Technology Stack: High-Throughput Node.js, Express 5, React 19 & S3" width="100%"></picture></h3>
 
-## 📂 Codebase & Directory Structure
+<div align="center">
 
-```txt
-9-in-1-Cloud/
-├── .github/
-│   └── workflows/
-│       └── pages.yml                 # Automated GitHub Pages deployment pipeline
-├── assets/                           # README banner image and support/payment QR codes
-├── backend/                          # Express 5 REST API & Cloud Gateway
-│   ├── prisma/
-│   │   ├── schema.prisma             # Full relational database schema definition
-│   │   └── migrations/               # Versioned SQL migrations for MySQL
-│   ├── src/
-│   │   ├── config/
-│   │   │   ├── env.ts                # Zod runtime environment variable validation
-│   │   │   └── prisma.ts             # Prisma ORM singleton client
-│   │   ├── middleware/
-│   │   │   ├── auth.middleware.ts    # JWT verification and user session injection
-│   │   │   ├── api-key.middleware.ts # External API key header validation & usage tracking
-│   │   │   └── error.middleware.ts   # Centralized error handler
-│   │   ├── modules/
-│   │   │   ├── auth/                 # User registration, Argon2 login, and Google sign-in
-│   │   │   ├── files/                # Upload, stream, rename, move, delete & sync logic
-│   │   │   ├── folders/              # Virtual folder creation, renaming, tree traversal
-│   │   │   ├── google/               # Google Drive API v3 OAuth and chunk streamer
-│   │   │   ├── s3/                   # S3 client wrapper for MinIO, R2, Wasabi, AWS
-│   │   │   ├── storage/              # Storage quota aggregation and routing policies
-│   │   │   ├── api-keys/             # API key generation, hashing, and revocation
-│   │   │   └── system/               # System health checks and PM2 update trigger
-│   │   └── server.ts                 # Express application entry point
-│   └── package.json
-├── frontend/                         # React 19 + Vite 8 Single Page App
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── drive/                # FileGrid, FileTable, FolderGrid, Quota visualizers
-│   │   │   └── ui/                   # Button, Card, Modal, and Dialog primitives
-│   │   ├── context/
-│   │   │   ├── UploadContext.tsx     # Global background upload queue manager
-│   │   │   └── StorageContext.tsx    # Live quota state and refresh triggers
-│   │   ├── pages/
-│   │   │   ├── AllFilesPage.tsx      # Main virtual file manager view
-│   │   │   ├── QuotaTrackerPage.tsx  # Multi-account quota tracking and node health
-│   │   │   ├── SettingsPage.tsx      # Routing policy, credentials, and PM2 updates
-│   │   │   └── SharedPage.tsx        # File sharing and collaborator management
-│   │   └── style.css                 # Custom glassmorphic styling and Tailwind utilities
-│   └── vite.config.ts
-├── docs/                             # Interactive GitHub Pages Live Demo
-│   ├── index.html                    # Standalone real-time simulator and visualizer
-│   └── assets/                       # Support QR codes and icons
-├── docker-compose.yml                # Multi-container orchestration (API + Frontend + MySQL)
-├── setup.ps1                         # PowerShell automated setup script (Windows)
-├── setup.sh                          # Bash automated setup script (Linux/macOS)
-└── LICENSE                           # Apache 2.0 Open-Source License
-```
+<a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" title="Node.js 20+ LTS Runtime"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-nodejs.svg"><img src="assets/readme/light/pill-nodejs.svg" alt="Node.js 20+" height="34"></picture></a>
+<a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer" title="TypeScript 5.x Static Typing"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-typescript.svg"><img src="assets/readme/light/pill-typescript.svg" alt="TypeScript 5.x" height="34"></picture></a>
+<a href="https://expressjs.com" target="_blank" rel="noopener noreferrer" title="Express 5 REST API"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-express.svg"><img src="assets/readme/light/pill-express.svg" alt="Express 5" height="34"></picture></a>
+<a href="https://react.dev" target="_blank" rel="noopener noreferrer" title="React 19 Frontend UI"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-react.svg"><img src="assets/readme/light/pill-react.svg" alt="React 19" height="34"></picture></a>
+<br><br>
+<a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" title="Tailwind CSS 3.4 Design Framework"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-tailwind.svg"><img src="assets/readme/light/pill-tailwind.svg" alt="Tailwind CSS" height="34"></picture></a>
+<a href="https://developers.google.com/drive" target="_blank" rel="noopener noreferrer" title="Google Drive REST API v3"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-gdrive.svg"><img src="assets/readme/light/pill-gdrive.svg" alt="Google Drive v3" height="34"></picture></a>
+<a href="https://aws.amazon.com/sdk-for-javascript/" target="_blank" rel="noopener noreferrer" title="AWS SDK v3 Client-S3"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-s3.svg"><img src="assets/readme/light/pill-s3.svg" alt="AWS SDK v3 S3" height="34"></picture></a>
+<a href="https://www.mysql.com" target="_blank" rel="noopener noreferrer" title="MySQL & SQLite Metadata Store"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-mysql.svg"><img src="assets/readme/light/pill-mysql.svg" alt="MySQL & SQLite" height="34"></picture></a>
+<br><br>
+<a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" title="Docker & Docker Compose Containerization"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-docker.svg"><img src="assets/readme/light/pill-docker.svg" alt="Docker & Compose" height="34"></picture></a>
+<a href="https://m3.material.io" target="_blank" rel="noopener noreferrer" title="Google Material 3 Expressive System"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/pill-m3e.svg"><img src="assets/readme/light/pill-m3e.svg" alt="Material 3 Expressive" height="34"></picture></a>
+
+</div>
+
+<h3 id="quickstart"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-quickstart.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-quickstart.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-quickstart.svg"><img src="assets/readme/light/h-quickstart.svg" alt="Quick Start & Setup: Docker Compose Deployment & Local Gateway Run" width="100%"></picture></h3>
+
+### 🐳 Option A: One-Click Docker Compose (Recommended)
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/smartworldarafath/9-in-1-Cloud.git
+   cd 9-in-1-Cloud
+   ```
+
+2. **Configure environment settings**:
+   ```bash
+   cp .env.docker.example .env
+   # Edit .env with your JWT secret, database credentials, and encryption key
+   ```
+
+3. **Launch the entire stack**:
+   ```bash
+   docker compose up -d --build
+   ```
+
+4. **Access your dashboard**:
+   - Web Dashboard: `http://localhost:3000`
+   - Gateway REST API: `http://localhost:5000/api`
 
 ---
 
-## 🚀 Quick Start & Installation
+### 💻 Option B: Manual Host Setup
 
-### System Prerequisites
-- **Node.js**: `20.x` or higher
-- **npm**: `10.x` or higher
-- **MySQL**: `8.0+` (or run via Docker)
-- **Google Cloud Console**: OAuth 2.0 Client ID & Client Secret (Google Drive API enabled)
+#### Prerequisites:
+- **Node.js**: v20.x LTS or higher
+- **MySQL**: 8.0+ (or SQLite)
+- **Google Cloud Console**: OAuth2 Client credentials (`client_id`, `client_secret`)
 
----
-
-### Option A: Automated Script Installation (Recommended)
-
-The automated script configures local `.env` files with secure cryptographically random secrets, installs dependencies, and prepares Prisma ORM.
-
-#### On Windows (PowerShell):
-```powershell
-# 1. Clone the repository
-git clone https://github.com/smartworldarafath/9-in-1-Cloud.git
-cd 9-in-1-Cloud
-
-# 2. Run the automated PowerShell installer
-powershell -ExecutionPolicy Bypass -File .\setup.ps1
-```
-
-#### On Linux / macOS (Bash):
+#### 1. Backend Gateway Setup:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/smartworldarafath/9-in-1-Cloud.git
-cd 9-in-1-Cloud
-
-# 2. Make executable and run setup script
-chmod +x ./setup.sh
-./setup.sh
+cd backend
+npm install
+cp .env.example .env
+npx prisma migrate deploy
+npm run build
+npm start
 ```
 
----
-
-### Option B: Docker & Docker Compose (Zero Configuration)
-
-Deploy the complete stack (Backend API, React Frontend, and MySQL 8 database) with a single command:
-
+#### 2. Frontend Web Dashboard:
 ```bash
-# 1. Create your environment configuration from the template
-cp .env.docker.example .env
-
-# 2. Start all containers in the background
-docker compose up -d --build
-
-# 3. Check container health status
-docker compose ps
+cd frontend
+npm install
+npm run build
+npm start
 ```
 
-Once started:
-- **Frontend Dashboard**: `http://localhost:5173`
-- **Backend API Gateway**: `http://localhost:4000`
-- **MySQL Database**: `localhost:3306`
+<h3 id="api"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-api.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-api.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-api.svg"><img src="assets/readme/light/h-api.svg" alt="API & Ingestion Protocols: Streaming REST API, CLI Tools & cURL Reference" width="100%"></picture></h3>
 
----
+Upload and stream files headlessly from backup scripts, automated microservices, and CI/CD pipelines.
 
-## ⚙️ Environment Configuration Reference
-
-### Backend (`backend/.env`)
-| Variable | Default Value | Description |
-| :--- | :--- | :--- |
-| `PORT` | `4000` | HTTP port for the Express API gateway |
-| `DATABASE_URL` | `mysql://root@localhost:3306/9drive` | Prisma MySQL database connection URI |
-| `JWT_SECRET` | `[auto-generated-32-byte-hex]` | Secret key used to sign and verify user JWT sessions |
-| `FRONTEND_URL` | `http://localhost:5173` | Allowed CORS origin for web dashboard requests |
-| `GOOGLE_CLIENT_ID` | `[your-client-id].apps.googleusercontent.com` | Google Cloud OAuth 2.0 Client ID |
-| `GOOGLE_CLIENT_SECRET` | `[your-client-secret]` | Google Cloud OAuth 2.0 Client Secret |
-| `GOOGLE_REDIRECT_URI` | `http://localhost:4000/connected-accounts/google/callback` | OAuth redirect URI configured in Google Cloud Console |
-
-### Frontend (`frontend/.env`)
-| Variable | Default Value | Description |
-| :--- | :--- | :--- |
-| `VITE_API_URL` | `http://localhost:4000` | Target URL for backend API requests |
-
----
-
-## 🔑 Google Cloud Console OAuth Setup Guide
-
-To link your Google Drive accounts:
-1. Open the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new project named **9-in-1 Cloud**.
-3. Go to **APIs & Services > Library**, search for **Google Drive API**, and click **Enable**.
-4. Navigate to **APIs & Services > OAuth consent screen**:
-   - Choose **External**.
-   - Fill in the App Name (`9-in-1 Cloud`) and your email address.
-   - Add the scope: `.../auth/drive` (Full access to create and manage the dedicated `9drive` folder).
-5. Navigate to **APIs & Services > Credentials**:
-   - Click **Create Credentials > OAuth Client ID**.
-   - Select **Web application**.
-   - In **Authorized JavaScript origins**, add: `http://localhost:5173` (or your domain).
-   - In **Authorized redirect URIs**, add: `http://localhost:4000/connected-accounts/google/callback`.
-6. Copy the generated **Client ID** and **Client Secret** into your backend configuration or enter them directly inside the **Settings** UI of the dashboard.
-
----
-
-## 📡 API Upload Reference
-
-You can stream uploads directly into your unified 9-in-1 cloud storage pool from third-party applications, CLI tools, or automated scripts using an API Key.
-
-### 1. Upload via cURL
+#### 1. Stream Upload via cURL:
 ```bash
-curl -X POST "http://localhost:4000/api/v1/uploads" \
-  -H "X-API-Key: your_generated_api_key_here" \
-  -F "file=@/path/to/large-backup-file.zip" \
+curl -X POST "http://localhost:5000/api/files/upload" \
+  -H "Authorization: Bearer <API_KEY_OR_JWT>" \
+  -F "file=@/path/to/archive.tar.gz" \
   -F "folderId=optional-virtual-folder-id"
 ```
 
-### 2. Upload via JavaScript (Fetch / Node.js)
+#### 2. Ingestion Script in Node.js:
 ```javascript
-const formData = new FormData();
-formData.append('file', fileBlob, 'application-build.tar.gz');
+import fs from 'fs';
+import FormData from 'form-data';
+import axios from 'axios';
 
-const response = await fetch('http://localhost:4000/api/v1/uploads', {
-  method: 'POST',
+const form = new FormData();
+form.append('file', fs.createReadStream('./dataset.zip'));
+
+const response = await axios.post('http://localhost:5000/api/files/upload', form, {
   headers: {
-    'X-API-Key': 'your_generated_api_key_here'
+    ...form.getHeaders(),
+    'Authorization': 'Bearer YOUR_API_KEY'
   },
-  body: formData
+  maxBodyLength: Infinity,
+  maxContentLength: Infinity
 });
 
-const result = await response.json();
-console.log('Upload completed:', result);
-// Output includes: { fileId, name, size, targetDriveAccount, streamStatus: 'synced' }
+console.log('Pooled File Uploaded:', response.data);
 ```
 
----
+#### 3. Python Stream Ingestion:
+```python
+import requests
 
-## ☕ Support / Buy Me a Coffee & Become a Sponsor
+with open('large_model.bin', 'rb') as f:
+    files = {'file': f}
+    headers = {'Authorization': 'Bearer YOUR_API_KEY'}
+    res = requests.post('http://localhost:5000/api/files/upload', files=files, headers=headers)
+    print(res.json())
+```
 
-If you find **9 in 1 Cloud** helpful and want to support ongoing development, maintenance, and new features, consider contributing through any of the options below! Your support means the world and helps keep this project open-source.
+<h3 id="support"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-support.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-support.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-support.svg"><img src="assets/readme/light/h-support.svg" alt="Support & Community: Support Arafath Rahman & Back 9-in-1 Cloud" width="100%"></picture></h3>
+
+If **9-in-1 Cloud** saved you cloud storage costs, helped your homelab, or inspired your architecture, please consider supporting the project:
 
 <div align="center">
 
 <table>
   <tr>
-
     <td align="center" width="25%" valign="top">
       <h4><img src="assets/icons/supportkori.png" alt="SupportKori" height="26" /> SupportKori</h4>
       <a href="https://www.supportkori.com/arafathrahman" target="_blank">
         <img src="assets/supportkori-qr.jpg" alt="SupportKori QR" width="180" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" />
       </a><br/><br/>
-      <a href="https://www.supportkori.com/arafathrahman" target="_blank">
+      <a href="https://www.supportkori.com/arafathrahman">
         <img src="assets/icons/supportkori.png" alt="SupportKori" width="52" />
       </a><br/>
-      <sub>Cards / bKash / Nagad / Global</sub>
+      <sub>Cards / bKash / Nagad<br/><code>supportkori.com/arafathrahman</code></sub>
     </td>
     <td align="center" width="25%" valign="top">
       <h4><img src="assets/icons/nsave.png" alt="nsave" height="26" /> nsave</h4>
       <img src="assets/nsave-qr.jpg" alt="nsave QR" width="180" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" /><br/><br/>
       <img src="assets/icons/nsave.png" alt="nsave" width="52" /><br/>
-      <sub>Ntag: <code>@arafath_rahman9</code></sub>
+      <sub>Ntag: <code>@arafath_rahman9</code><br/>Account: <code>Md Arafath Rahman</code></sub>
     </td>
     <td align="center" width="25%" valign="top">
       <h4><img src="assets/icons/redotpay.png" alt="RedotPay" height="26" /> RedotPay</h4>
       <img src="assets/redotpay-qr.jpg" alt="RedotPay QR" width="180" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" /><br/><br/>
       <img src="assets/icons/redotpay.png" alt="RedotPay" width="52" /><br/>
-      <sub>ID: <code>1965421414</code></sub>
+      <sub>Account ID: <code>1965421414</code></sub>
     </td>
     <td align="center" width="25%" valign="top">
       <h4><img src="assets/icons/payoneer.png" alt="Payoneer" height="26" /> Payoneer</h4>
@@ -408,92 +294,31 @@ If you find **9 in 1 Cloud** helpful and want to support ongoing development, ma
       <a href="mailto:arafathrahman710@gmail.com?subject=Support%20via%20Payoneer">
         <img src="assets/icons/payoneer.png" alt="Payoneer" width="52" />
       </a><br/>
-      <sub>Email: <code>arafathrahman710@gmail.com</code></sub>
+      <sub>Email: <code>arafathrahman710@gmail.com</code><br/>Customer ID: <code>70366820</code></sub>
     </td>
   </tr>
 </table>
 
-<br/>
+<br>
 
-| Method | Details / Direct Link |
+| Method | Details & Direct Links |
 | :--- | :--- |
-| **<img src="assets/icons/supportkori.png" alt="SupportKori" height="16" /> SupportKori** | [https://www.supportkori.com/arafathrahman](https://www.supportkori.com/arafathrahman) |
-| **<img src="assets/icons/nsave.png" alt="nsave" height="16" /> nsave** | Ntag: `@arafath_rahman9` • `Md Arafath Rahman` |
+| **<img src="assets/icons/supportkori.png" alt="SupportKori" height="16" /> SupportKori** | [supportkori.com/arafathrahman](https://www.supportkori.com/arafathrahman) (bKash, Nagad, Visa, Mastercard) |
+| **<img src="assets/icons/nsave.png" alt="nsave" height="16" /> nsave** | Ntag: `@arafath_rahman9` · Account: `Md Arafath Rahman` |
 | **<img src="assets/icons/redotpay.png" alt="RedotPay" height="16" /> RedotPay** | Account ID: `1965421414` |
-| **<img src="assets/icons/payoneer.png" alt="Payoneer" height="16" /> Payoneer** | Email: `arafathrahman710@gmail.com` • Customer ID: `70366820` |
+| **<img src="assets/icons/payoneer.png" alt="Payoneer" height="16" /> Payoneer** | Email: `arafathrahman710@gmail.com` · Customer ID: `70366820` |
 
 </div>
 
-## 🤝 Contributing
+<h3 id="license"><picture><source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="assets/readme/dark/hm-license.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/readme/dark/h-license.svg"><source media="(max-width: 640px)" srcset="assets/readme/light/hm-license.svg"><img src="assets/readme/light/h-license.svg" alt="License: Apache License 2.0" width="100%"></picture></h3>
 
-Contributions, bug reports, and enhancements are always welcome!
-1. Fork the Project (`https://github.com/smartworldarafath/9-in-1-Cloud/fork`)
-2. Create your Feature Branch (`git checkout -b feature/NewCapability`)
-3. Commit your Changes (`git commit -m 'Add NewCapability'`)
-4. Push to the Branch (`git push origin feature/NewCapability`)
-5. Open a Pull Request
+9-in-1 Cloud is open-source software licensed under the **[Apache License, Version 2.0](LICENSE)**.
 
----
+Copyright © 2026 **[Arafath Rahman](https://github.com/smartworldarafath)** and Contributors.
 
-## 📄 License & Copyright
-
-Distributed under the **Apache License, Version 2.0**. See the [LICENSE](LICENSE) file for complete details.
-
-Copyright © 2026 **Arafath**. All rights reserved.
-
-
----
+* **Icons & Design Inspiration**: Google Material 3 Expressive, Material Symbols, and Lucide Icons.
+* **Storage Protocols**: Google Drive API v3, AWS SDK v3 Client-S3, and Busboy Stream Duplexing.
 
 <div align="center">
-
-<a href="SUPPORT.md" target="_blank">
-  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20Arafath%20Rahman-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee" />
-</a>
-<br/>
-<sub><b>▲ Tap the sticker for the full support page &mdash; or expand every payment option &amp; the payment QR codes right here</b></sub>
-
-<details>
-<summary>
-  <sub><b>Show all payment options &amp; QR codes</b></sub>
-</summary>
-
-<br/>
-
-<table>
-  <tr>
-    <td align="center" width="25%" valign="top">
-      <h4><img src="assets/icons/supportkori.png" alt="SupportKori" height="26" /> SupportKori</h4>
-      <a href="https://www.supportkori.com/arafathrahman" target="_blank">
-        <img src="assets/supportkori-qr.jpg" alt="SupportKori QR" width="190" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" />
-      </a><br/>
-      <sub>Cards / bKash / Nagad<br/><a href="https://www.supportkori.com/arafathrahman">supportkori.com/arafathrahman</a></sub>
-    </td>
-    <td align="center" width="25%" valign="top">
-      <h4><img src="assets/icons/nsave.png" alt="nsave" height="26" /> nsave</h4>
-      <img src="assets/nsave-qr.jpg" alt="nsave QR" width="190" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" /><br/>
-      <sub>Ntag: <code>@arafath_rahman9</code></sub>
-    </td>
-    <td align="center" width="25%" valign="top">
-      <h4><img src="assets/icons/redotpay.png" alt="RedotPay" height="26" /> RedotPay</h4>
-      <img src="assets/redotpay-qr.jpg" alt="RedotPay QR" width="190" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" /><br/>
-      <sub>Account ID: <code>1965421414</code></sub>
-    </td>
-    <td align="center" width="25%" valign="top">
-      <h4><img src="assets/icons/payoneer.png" alt="Payoneer" height="26" /> Payoneer</h4>
-      <img src="assets/payoneer-info.jpg" alt="Payoneer info" width="190" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" /><br/>
-      <sub><code>arafathrahman710@gmail.com</code><br/>Customer ID: <code>70366820</code></sub>
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-**🌍 Outside Bangladesh?** One-tap online support &mdash; cards, Apple Pay &amp; Google Pay:
-
-<a href="https://www.buymeacoffee.com/arafathrahman" target="_blank">
-  <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-buymeacoffee.com%2Farafathrahman-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee online" />
-</a>
-
-</details>
-
+<sub>Search terms: 9-in-1 Cloud, multi-cloud storage pooling, Google Drive aggregator, zero disk VPS proxy, S3 gateway, free cloud storage pooling, Material 3 Expressive, Docker cloud drive, Node.js stream upload.</sub>
 </div>
