@@ -1,5 +1,13 @@
 <div align="center">
 
+# ⚡ 9-in-1 Cloud Storage Gateway
+
+**The Unified Multi-Cloud Storage Pooling & Intelligent Stream Gateway**
+
+*Aggregate up to 9 Google Drive & S3 cloud accounts into one seamless, high-performance virtual storage pool with zero server disk buffering.*
+
+<br/>
+
 <img src="assets/banner-9in1-cloud.jpg" alt="9-in-1 Cloud — Unified Multi-Cloud Storage Pooling & Intelligent Stream Gateway" width="100%" style="border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.18);" />
 
 <br><br>

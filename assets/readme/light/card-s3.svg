@@ -17,7 +17,7 @@
       </g>
       <g transform="translate(-15, -15) scale(1.25)"><path d="M19 4H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 5H5V6h14v3zm0 4H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm0 5H5v-3h14v3z" fill="#251A00"/></g>
     </g>
-    <text x="36" y="125" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="21" font-weight="700" fill="#211824">S3 & Cloudflare R2 Tiering</text>
+    <text x="36" y="125" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="21" font-weight="700" fill="#211824">S3 &amp; Cloudflare R2 Tiering</text>
     <text x="36" y="152" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="13.5" font-weight="400" fill="#5f4e60">
       <tspan x="36" dy="0">Connect MinIO, Cloudflare R2, Wasabi, or AWS S3 as</tspan><tspan x="36" dy="20">overflow storage nodes with native AWS SDK v3 support</tspan><tspan x="36" dy="20">for hybrid cold/hot multi-cloud replication.</tspan>
     </text>

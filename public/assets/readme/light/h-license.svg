@@ -13,8 +13,8 @@
       </g>
       <g transform="translate(-18, -18) scale(1.5)"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 4.5l5 4.5H7l5-4.5zM12 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="#251A29"/></g>
     </g>
-    <text x="114" y="47" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="30" font-weight="700" fill="#211824">License & Copyright</text>
-    <text x="114" y="74" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#675466">Apache License 2.0 · Open Source & Free</text>
+    <text x="114" y="47" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="30" font-weight="700" fill="#211824">License &amp; Copyright</text>
+    <text x="114" y="74" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#675466">Apache License 2.0 · Open Source &amp; Free</text>
     <g transform="translate(856, 36)">
         <rect width="114" height="32" rx="16" fill="#ddcedd"/>
         <text x="57" y="20.5" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="13" font-weight="700" fill="#221824" text-anchor="middle">Open Source</text>

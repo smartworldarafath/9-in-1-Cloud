@@ -13,5 +13,5 @@
       </g>
       <g transform="translate(-5.5, -5.5) scale(0.4583333333333333)"><path d="M19 4H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 5H5V6h14v3zm0 4H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2zm0 5H5v-3h14v3z" fill="#251A00"/></g>
     </g>
-    <text x="27" y="18" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#261b28">S3 & R2 Compatible</text>
+    <text x="27" y="18" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#261b28">S3 &amp; R2 Compatible</text>
   </svg>

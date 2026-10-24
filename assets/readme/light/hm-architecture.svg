@@ -14,5 +14,5 @@
       <g transform="translate(-15, -15) scale(1.25)"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" fill="#042018"/></g>
     </g>
     <text x="96" y="42" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="24" font-weight="700" fill="#211824">System Architecture</text>
-    <text x="96" y="66" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="13" font-weight="400" fill="#675466">Streaming Pipeline & High-Performance Routing</text>
+    <text x="96" y="66" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="13" font-weight="400" fill="#675466">Streaming Pipeline &amp; High-Performance Routing</text>
   </svg>

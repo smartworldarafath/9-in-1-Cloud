@@ -14,7 +14,7 @@
       <g transform="translate(-18, -18) scale(1.5)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-12-3l-1.4-1.4L8.8 11 6.6 8.8 8 7.4l3.6 3.6L8 15zm5 0h6v-2h-6v2z" fill="#001A41"/></g>
     </g>
     <text x="114" y="47" font-family="system-ui, -apple-system, 'Google Sans', Roboto, sans-serif" font-size="30" font-weight="700" fill="#211824">Technology Stack</text>
-    <text x="114" y="74" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#675466">High-Throughput Node.js, Express 5, React 19 & S3</text>
+    <text x="114" y="74" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14.5" font-weight="400" fill="#675466">High-Throughput Node.js, Express 5, React 19 &amp; S3</text>
     <g transform="translate(864, 36)">
         <rect width="106" height="32" rx="16" fill="#ddcedd"/>
         <text x="53" y="20.5" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="13" font-weight="700" fill="#221824" text-anchor="middle">AWS S3 SDK</text>

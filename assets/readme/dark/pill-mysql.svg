@@ -13,5 +13,5 @@
       </g>
       <g transform="translate(-8.5, -8.5) scale(0.7083333333333334)"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm6 14c0 .88-2.69 2-6 2s-6-1.12-6-2v-2.23c1.61.78 3.73 1.23 6 1.23s4.39-.45 6-1.23V17zm0-4.5c0 .88-2.69 2-6 2s-6-1.12-6-2v-2.23c1.61.78 3.73 1.23 6 1.23s4.39-.45 6-1.23V12.5zm0-4.5c0 .88-2.69 2-6 2s-6-1.12-6-2V5.77C7.61 6.55 9.73 7 12 7s4.39-.45 6-1.23V8z" fill="#FFFFFF"/></g>
     </g>
-    <text x="42" y="26" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14" font-weight="600" fill="#f0e2ee">MySQL & SQLite VFS</text>
+    <text x="42" y="26" font-family="system-ui, -apple-system, Roboto, sans-serif" font-size="14" font-weight="600" fill="#f0e2ee">MySQL &amp; SQLite VFS</text>
   </svg>
